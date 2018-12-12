@@ -3,7 +3,11 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Response;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Validation\Validator;
 
 class Handler extends ExceptionHandler
 {
@@ -46,6 +50,51 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
+        if ($exception instanceof ValidationException) {
+            return $this->validationOutput($exception);
+        } elseif ($exception instanceof ModelNotFoundException) {
+            return $this->errorOutput('Resource not found.', 404);
+        }
+
+        return $this->errorOutput('Server error.', 500);
+    }
+
+    public function errorOutput($message, $code )
+    {
+        $res =  [
+            'error' => [
+                [
+                    'type' => "general",
+                    'field' => null,
+                    'message' => $message
+                ]
+            ]
+        ];
+
+        return ( new Response($res , $code) )->header('Content-Type', 'application/json');
+    }
+
+
+    public function validationOutput($e)
+    {
+        /** @var Validator $validator */
+        $validator = $e->validator;
+
+        $messages = $validator->getMessageBag()->getMessages();
+
+        $key = key($messages);
+
+        $res = [
+            'error' => [
+                [
+                    'type' => "validation",
+                    'field' => $key,
+                    'message' => $messages[$key]
+                ]
+            ]
+        ];
+
+        return ( new Response($res , 422) )->header('Content-Type', 'application/json');
+
     }
 }
