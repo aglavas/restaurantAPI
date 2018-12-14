@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -54,5 +56,34 @@ class Controller extends BaseController
             'status' => 'success',
             'message'=> $message
         ], $statusCode);
+    }
+
+    /**
+     * Success response with pagination
+     *
+     * @param LengthAwarePaginator $paginator
+     * @param int $status
+     * @param string $contentType
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function respondWithPagination($paginator, $status=200, $contentType='application/json')
+    {
+        $response = [
+            'meta' => [
+                'currentPage' => $paginator->currentPage(),
+                'totalItems' => $paginator->total(),
+                'itemsPerPage' => $paginator->perPage(),
+                'totalPages' => $paginator->lastPage(),
+            ],
+            'data' => $paginator->items(),
+            'links' => [
+                'prev' => $paginator->previousPageUrl(),
+                'next' => $paginator->nextPageUrl(),
+                'self' => $paginator->url($paginator->currentPage()),
+                'template' => url()->current() . "?%page%",
+            ]
+        ];
+
+        return $this->successDataResponse($response, 200);
     }
 }

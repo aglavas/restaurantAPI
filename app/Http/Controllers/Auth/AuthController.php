@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Entities\Restaurant;
+use App\Entities\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AuthLoginRequest;
 use App\Http\Resources\AuthResource;
@@ -46,12 +47,27 @@ class AuthController extends Controller
     }
 
     /**
-     * @return AuthController
+     * Return user informations
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getMe()
     {
         $user = Auth::user();
 
         return $this->successDataResponse($user,200);
+    }
+
+    /**
+     * Get list of all users with pagination and relations
+     *
+     * @param User $user
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getUserList(User $user)
+    {
+        $users = $user->with('userable')->paginate(10);
+
+        return $this->respondWithPagination($users,200);
     }
 }

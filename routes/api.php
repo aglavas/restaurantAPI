@@ -16,11 +16,17 @@ use Illuminate\Http\Request;
 
 
 Route::post('login', 'Auth\AuthController@login');
-//Route::post('user/restaurant', 'User\RestaurantController@store');
-//Route::delete('user/restaurant/{restaurant}', 'User\RestaurantController@destroy');
-
+Route::get('list', 'Auth\AuthController@getUserList');
+Route::put('user/restaurant/{restaurant}', 'User\RestaurantController@update');
+Route::get('user/restaurant/{restaurant}', 'User\RestaurantController@show');
+Route::get('user/restaurant', 'User\RestaurantController@list');
 
 Route::group(['middleware' => 'auth:api'], function(){
+    // User
     Route::get('me', 'Auth\AuthController@getMe');
+    Route::get('user/list', 'Auth\AuthController@getUserList');
     Route::post('logout', 'Auth\AuthController@logout');
+    // Restaurant
+    Route::post('user/restaurant', 'User\RestaurantController@store');
+    Route::delete('user/restaurant/{restaurant}', 'User\RestaurantController@destroy');
 });

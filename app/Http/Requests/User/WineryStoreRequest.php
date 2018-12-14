@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests\User;
 
-
 use App\Http\Requests\FoundationRequest;
 
-class RestaurantStoreRequest extends FoundationRequest
+class WineryStoreRequest extends FoundationRequest
 {
 
     /**
@@ -35,8 +34,6 @@ class RestaurantStoreRequest extends FoundationRequest
             'translation.de.description' => 'string',
             'translation.fr.description' => 'string',
             'translation.it.description' => 'string',
-            'delivery' => 'required|in:0,1',
-            'delivery_price' => 'required|string',
             'lat' => 'required|numeric',
             'long' => 'required|numeric',
         ];

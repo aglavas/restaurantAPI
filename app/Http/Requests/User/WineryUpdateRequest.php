@@ -2,12 +2,10 @@
 
 namespace App\Http\Requests\User;
 
-
 use App\Http\Requests\FoundationRequest;
 
-class RestaurantStoreRequest extends FoundationRequest
+class WineryUpdateRequest extends FoundationRequest
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -27,16 +25,12 @@ class RestaurantStoreRequest extends FoundationRequest
     {
         return [
             'name' => 'required|string',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|confirmed',
             'address' => 'required|string',
             'open_hours' => 'required|string',
             'translation.en.description' => 'string',
             'translation.de.description' => 'string',
             'translation.fr.description' => 'string',
             'translation.it.description' => 'string',
-            'delivery' => 'required|in:0,1',
-            'delivery_price' => 'required|string',
             'lat' => 'required|numeric',
             'long' => 'required|numeric',
         ];

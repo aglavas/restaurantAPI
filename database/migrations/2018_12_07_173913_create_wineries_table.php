@@ -15,6 +15,10 @@ class CreateWineriesTable extends Migration
     {
         Schema::create('wineries', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('address');
+            $table->string('open_hours');
+            $table->decimal('lat');
+            $table->decimal('long');
             $table->timestamps();
         });
     }
