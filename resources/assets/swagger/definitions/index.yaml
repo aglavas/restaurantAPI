@@ -1,0 +1,20 @@
+#auth
+UserObject:
+  $ref: './auth/User.yaml'
+UserList:
+  $ref: './auth/UserList.yaml'
+#shared
+ErrorMessage:
+  $ref: './shared/ErrorMessage.yaml'
+ValidationError:
+  $ref: './shared/ValidationError.yaml'
+GeneralError:
+  $ref: './shared/GeneralError.yaml'
+SuccessMessage:
+  $ref: './shared/SuccessMessage.yaml'
+SuccessData:
+  $ref: './shared/SuccessData.yaml'
+PaginationMeta:
+  $ref: './shared/PaginationMeta.yaml'
+PaginationLinks:
+  $ref: './shared/PaginationLinks.yaml'

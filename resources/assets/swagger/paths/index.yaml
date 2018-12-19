@@ -1,0 +1,14 @@
+
+#auth
+  /login:
+    post:
+      $ref: './auth/login.yaml'
+  /logout:
+    post:
+      $ref: './auth/logout.yaml'
+  /user/list:
+    get:
+      $ref: './auth/list.yaml'
+  /me:
+    get:
+      $ref: './auth/me.yaml'

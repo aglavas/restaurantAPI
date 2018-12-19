@@ -1,0 +1,26 @@
+operationId: GetAuthLogout
+tags:
+  - Auth
+summary: User logout
+description: User logs out, system invalidates JWT token
+consumes:
+  - application/json
+produces:
+  - application/json
+responses:
+  '200':
+    description: Meal deleted
+    schema:
+      properties:
+        status_code:
+          type: integer
+        data:
+          type: string
+  '401':
+        description: Unauthenticated.
+        schema:
+          properties:
+            errors:
+              type: array
+              items:
+                $ref: '#/definitions/GeneralError'
