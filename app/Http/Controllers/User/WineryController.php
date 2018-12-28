@@ -7,9 +7,12 @@ use App\Entities\User;
 use App\Entities\Winery;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\RestaurantUpdateRequest;
+use App\Http\Requests\User\UploadAvatarRequest;
 use App\Http\Requests\User\WineryStoreRequest;
 use App\Http\Requests\User\WineryUpdateRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class WineryController extends Controller
 {
@@ -40,7 +43,7 @@ class WineryController extends Controller
             return $this->errorMessageResponse('Error while updating winery', 500);
         }
 
-        return $this->successMessageResponse('Winery created successfully', 200);
+        return $this->successDataResponse($winery, 200);
     }
 
     /**
@@ -116,5 +119,26 @@ class WineryController extends Controller
         $winery = $winery->with('translations')->paginate(10);
 
         return $this->respondWithPagination($winery, 200);
+    }
+
+    /**
+     * Upload winery avatar
+     *
+     * @param UploadAvatarRequest $request
+     * @return mixed
+     */
+    public function uploadAvatar(UploadAvatarRequest $request)
+    {
+        $winery = Auth::user();
+
+        $delete = 'wineries/avatars' . '/' . $winery->id;
+
+        Storage::disk('s3')->delete($delete);
+
+        $request->avatar->storeAs('wineries/avatars' , $winery->id, 's3', "public");
+
+        $url = Storage::cloud()->url('api-test-v2/wineries/avatars/'. $winery->id);
+
+        return $this->successDataResponse($url, 200);
     }
 }

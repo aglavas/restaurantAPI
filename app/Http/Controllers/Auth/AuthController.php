@@ -7,6 +7,7 @@ use App\Entities\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AuthLoginRequest;
 use App\Http\Resources\AuthResource;
+use App\Http\Resources\UserListResource;
 use Illuminate\Auth\AuthManager;
 use Illuminate\Support\Facades\Auth;
 
@@ -55,7 +56,9 @@ class AuthController extends Controller
     {
         $user = Auth::user();
 
-        return $this->successDataResponse($user,200);
+        $userResource = UserListResource::make($user);
+
+        return $this->successDataResponse($userResource,200);
     }
 
     /**
@@ -68,6 +71,8 @@ class AuthController extends Controller
     {
         $users = $user->with('userable')->paginate(10);
 
-        return $this->respondWithPagination($users,200);
+        $userResource = UserListResource::collection($users);
+
+        return $this->respondWithPagination($userResource,200);
     }
 }

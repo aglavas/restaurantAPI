@@ -28,6 +28,26 @@ class Restaurant extends Model
     }
 
     /**
+     * Restaurant has many food categories
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function foodCategories()
+    {
+        return $this->hasMany(FoodCategory::class, 'restaurant_id', 'id');
+    }
+
+    /**
+     * Restaurant has many foods
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function foods()
+    {
+        return $this->hasMany(Food::class, 'restaurant_id', 'id');
+    }
+
+    /**
      * Deletes morphed relation
      *
      * @return bool|null

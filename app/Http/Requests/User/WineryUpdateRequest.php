@@ -27,10 +27,10 @@ class WineryUpdateRequest extends FoundationRequest
             'name' => 'required|string',
             'address' => 'required|string',
             'open_hours' => 'required|string',
+            'translation.hr.description' => 'string',
             'translation.en.description' => 'string',
             'translation.de.description' => 'string',
             'translation.fr.description' => 'string',
-            'translation.it.description' => 'string',
             'lat' => 'required|numeric',
             'long' => 'required|numeric',
         ];

@@ -9,6 +9,7 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Validation\Validator;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -59,6 +60,8 @@ class Handler extends ExceptionHandler
             return $this->errorOutput('Resource not found.', 404);
         } elseif ($exception instanceof AuthenticationException) {
             return $this->errorOutput('Unauthenticated.', 401);
+        } elseif ($exception instanceof NotFoundHttpException) {
+            return $this->errorOutput('Route not found.', 404);
         }
 
         return $this->errorOutput($exception->getMessage(), 500);
@@ -94,7 +97,7 @@ class Handler extends ExceptionHandler
                 [
                     'type' => "validation",
                     'field' => $key,
-                    'message' => $messages[$key]
+                    'message' => $messages[$key][0]
                 ]
             ]
         ];

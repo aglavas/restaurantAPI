@@ -38,8 +38,13 @@ class Controller extends BaseController
     public function errorMessageResponse($message, $statusCode)
     {
         return response()->json([
-            'status' => 'error',
-            'message'=> $message
+            'error' => [
+                [
+                    'type' => "general",
+                    'field' => null,
+                    'message' => $message
+                ]
+            ]
         ], $statusCode);
     }
 
@@ -68,7 +73,7 @@ class Controller extends BaseController
      */
     public function respondWithPagination($paginator, $status=200, $contentType='application/json')
     {
-        $response = [
+        $data = [
             'meta' => [
                 'currentPage' => $paginator->currentPage(),
                 'totalItems' => $paginator->total(),
@@ -84,6 +89,6 @@ class Controller extends BaseController
             ]
         ];
 
-        return $this->successDataResponse($response, 200);
+        return response()->json($data)->setStatusCode($status);
     }
 }

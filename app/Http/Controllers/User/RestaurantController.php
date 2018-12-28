@@ -7,7 +7,10 @@ use App\Entities\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\RestaurantStoreRequest;
 use App\Http\Requests\User\RestaurantUpdateRequest;
+use App\Http\Requests\User\UploadAvatarRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class RestaurantController extends Controller
 {
@@ -28,7 +31,7 @@ class RestaurantController extends Controller
             $user = $user->create([
                 'name' => $request->input('name'),
                 'email' => $request->input('email'),
-                'password' => $request->input('email'),
+                'password' => $request->input('password'),
             ]);
 
             $restaurant = $restaurant->create($request->input());
@@ -38,7 +41,7 @@ class RestaurantController extends Controller
             return $this->errorMessageResponse('Error while updating restaurant', 500);
         }
 
-        return $this->successMessageResponse('Restaurant created successfully', 200);
+        return $this->successDataResponse($restaurant, 200);
     }
 
     /**
@@ -117,4 +120,37 @@ class RestaurantController extends Controller
 
         return $this->respondWithPagination($restaurant, 200);
     }
+
+    /**
+     * Upload profile picture
+     *
+     * @param UploadAvatarRequest $request
+     * @return mixed
+     */
+    public function uploadAvatar(UploadAvatarRequest $request)
+    {
+        $restaurant = Auth::user();
+
+        $delete = 'restaurants/avatars' . '/' . $restaurant->id;
+
+        Storage::disk('s3')->delete($delete);
+
+        $request->avatar->storeAs('restaurants/avatars' , $restaurant->id, 's3', "public");
+
+        $url = Storage::cloud()->url('api-test-v2/restaurants/avatars/'. $restaurant->id);
+
+        return $this->successDataResponse($url, 200);
+    }
+
+
+    public function getMenu()
+    {
+        /** @var Restaurant $restaurant */
+        $restaurant = Auth::user()->userable;
+
+        $foods = $restaurant->foods()->with(['category', 'ingredients'])->get();
+
+        return $this->successDataResponse($foods, 200);
+    }
+
 }

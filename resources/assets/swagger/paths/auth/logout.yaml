@@ -9,7 +9,7 @@ produces:
   - application/json
 responses:
   '200':
-    description: Meal deleted
+    description: User logged out
     schema:
       properties:
         status_code:
