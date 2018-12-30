@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Food;
+use App\Http\Requests\Food\FoodDeleteImageRequest;
+use App\Http\Requests\Food\FoodStoreImageRequest;
 use App\Http\Requests\Food\FoodStoreRequest;
 use App\Http\Requests\Food\FoodUpdateRequest;
+use Illuminate\Support\Facades\Storage;
 
 class FoodController extends Controller
 {
@@ -105,5 +108,81 @@ class FoodController extends Controller
         }
 
         return $this->successDataResponse($food->load(['ingredients', 'translations', 'category']), 200);
+    }
+
+
+    /**
+     * Upload food images
+     *
+     * @param FoodStoreImageRequest $request
+     * @param Food $food
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function storeFoodImage(FoodStoreImageRequest $request, Food $food)
+    {
+        $lastActive = '';
+        $currentActive = '';
+
+        for($i = 1; $i <= 6; $i++) {
+            $id = 'image_' . $i;
+
+            if($food->{$id}) {
+                $lastActive = $id;
+            }
+
+            if ($food->{$id} && $i === 6) {
+                $lastActive = null;
+            }
+        }
+
+        if($lastActive === null) {
+            return $this->errorMessageResponse('Maximum image number uploaded', 400);
+        }
+
+        if($lastActive === '') {
+            $currentActive = 'image_1';
+        } else {
+            $lastActiveArray = explode('_', $lastActive);
+            $lastActiveArray[1]++;
+
+            $currentActive = implode('_', $lastActiveArray);
+        }
+
+        $foodImgId = rand();
+
+        $food->{$currentActive} = $foodImgId;
+        $food->save();
+
+        $request->image->storeAs('foods/' . $food->id . '/' , $foodImgId, 's3', "public");
+
+        $url = Storage::cloud()->url('api-test-v2/foods/'. $food->id . '/' . $foodImgId);
+
+        return $this->successDataResponse($url, 200);
+    }
+
+
+    /**
+     * Delete food image
+     *
+     * @param FoodDeleteImageRequest $request
+     * @param Food $food
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroyFoodImage(FoodDeleteImageRequest $request, Food $food)
+    {
+        for($i = 1; $i <= 6; $i++) {
+            $id = 'image_' . $i;
+            if($food->{$id} == $request->input('image_id')) {
+                $food->{$id} = '';
+                $food->save();
+                break;
+            }
+        }
+
+        $delete = 'foods/' . $food->id . '/' . $request->input('image_id');
+
+        Storage::disk('s3')->delete($delete);
+
+        return $this->successDataResponse('Image deleted successfully', 200);
     }
 }

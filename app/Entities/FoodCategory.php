@@ -26,4 +26,14 @@ class FoodCategory extends Model
     {
         return $this->hasMany(Food::class, 'category_id', 'id');
     }
+
+    /**
+     * Food category has many additions
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function additions()
+    {
+        return $this->hasMany(FoodAddition::class, 'category_id', 'id');
+    }
 }

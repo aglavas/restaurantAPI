@@ -36,5 +36,4 @@ class FoodStoreRequest extends FoundationRequest
             'translation.fr.name' => 'string',
         ];
     }
-
 }

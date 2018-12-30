@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFoodIngredientPivotTable extends Migration
+class CreateRestaurantFoodsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateFoodIngredientPivotTable extends Migration
      */
     public function up()
     {
-        Schema::create('food_ingredient_pivot', function (Blueprint $table) {
+        Schema::create('restaurant_order_foods', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('order_id')->unsigned();
             $table->integer('food_id')->unsigned();
-            $table->integer('ingredient_id')->unsigned();
+            $table->foreign('order_id')->references('id')->on('restaurant_orders')->onDelete('cascade');
             $table->foreign('food_id')->references('id')->on('foods')->onDelete('cascade');
-            $table->foreign('ingredient_id')->references('id')->on('ingredients')->onDelete('cascade');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateFoodIngredientPivotTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('food_ingredient_pivot');
+        Schema::dropIfExists('restaurant_order_foods');
     }
 }

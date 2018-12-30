@@ -22,6 +22,9 @@ Route::delete('food/{food}', 'FoodController@destroy');
 Route::get('food/{food}', 'FoodController@show');
 Route::get('food', 'FoodController@list');
 Route::put('food/{food}', 'FoodController@update');
+Route::post('food/{food}/image', 'FoodController@storeFoodImage');
+Route::delete('food/{food}/image', 'FoodController@destroyFoodImage');
+
 
 
 Route::post('foodCategory', 'FoodCategoryController@store');
@@ -36,6 +39,22 @@ Route::get('foodAddition/{foodAddition}', 'FoodAdditionController@show');
 Route::get('foodAddition', 'FoodAdditionController@list');
 Route::put('foodAddition/{foodAddition}', 'FoodAdditionController@update');
 
+Route::post('restaurantCategory', 'RestaurantCategoryController@store');
+Route::delete('restaurantCategory/{restaurantCategory}', 'RestaurantCategoryController@destroy');
+Route::get('restaurantCategory/{restaurantCategory}', 'RestaurantCategoryController@show');
+Route::get('restaurantCategory', 'RestaurantCategoryController@list');
+Route::put('restaurantCategory/{restaurantCategory}', 'RestaurantCategoryController@update');
+Route::post('restaurantCategory/{restaurantCategoryId}/restaurantInventoryCategory', 'RestaurantCategoryController@attach');
+Route::put('restaurantCategory/{restaurantCategoryId}/restaurantInventoryCategory', 'RestaurantCategoryController@sync');
+
+Route::post('restaurantInventoryCategory', 'RestaurantInventoryCategoryController@store');
+Route::delete('restaurantInventoryCategory/{restaurantInventoryCategory}', 'RestaurantInventoryCategoryController@destroy');
+Route::get('restaurantInventoryCategory/{restaurantInventoryCategory}', 'RestaurantInventoryCategoryController@show');
+Route::get('restaurantInventoryCategory', 'RestaurantInventoryCategoryController@list');
+Route::put('restaurantInventoryCategory/{restaurantInventoryCategory}', 'RestaurantInventoryCategoryController@update');
+Route::post('restaurantInventoryCategory/{restaurantInventoryCategory}/avatar', 'RestaurantInventoryCategoryController@uploadAvatar');
+
+Route::get('restaurant/{restaurant}/orders', 'RestaurantOrderController@list');
 
 
 

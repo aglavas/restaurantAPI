@@ -16,7 +16,7 @@ class FoodCategoryController extends Controller
      */
     public function show(FoodCategory $foodCategory)
     {
-        $foodCategory = $foodCategory->load('translations');
+        $foodCategory = $foodCategory->load(['translations', 'foods', 'additions']);
 
         return $this->successDataResponse($foodCategory, 200);
     }
@@ -29,7 +29,7 @@ class FoodCategoryController extends Controller
      */
     public function list(FoodCategory $foodCategory)
     {
-        $foodCategory = $foodCategory->with('translations')->paginate(10);
+        $foodCategory = $foodCategory->with(['translations', 'foods', 'additions'])->paginate(10);
 
         return $this->respondWithPagination($foodCategory, 200);
     }

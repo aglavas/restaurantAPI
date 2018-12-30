@@ -24,7 +24,7 @@ class IngredientUpdateRequest extends FoundationRequest
     public function rules()
     {
         return [
-            'translation.hr.name' => 'string',
+            'translation.hr.name' => 'required|string',
             'translation.en.name' => 'string',
             'translation.de.name' => 'string',
             'translation.fr.name' => 'string',

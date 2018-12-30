@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\FoodCategory;
+namespace App\Http\Requests\RestaurantInventoryCategory;
 
 use App\Http\Requests\FoundationRequest;
 
-class FoodCategoryUpdateRequest extends FoundationRequest
+class RestaurantInventoryCategoryUpdateRequest extends FoundationRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,7 +28,6 @@ class FoodCategoryUpdateRequest extends FoundationRequest
             'translation.en.title' => 'string',
             'translation.de.title' => 'string',
             'translation.fr.title' => 'string',
-            'restaurant_id' => 'required|integer|exists:restaurants,id'
         ];
     }
 }

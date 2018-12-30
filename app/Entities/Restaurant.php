@@ -4,10 +4,11 @@ namespace App\Entities;
 
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Permission\Traits\HasRoles;
 
 class Restaurant extends Model
 {
-    use Translatable;
+    use Translatable, HasRoles;
 
     public $translatedAttributes = ['description'];
 
@@ -16,6 +17,19 @@ class Restaurant extends Model
     protected $fillable = [
         'address', 'open_hours','delivery', 'delivery_price', 'lat', 'long'
     ];
+
+    protected $guard_name = 'api';
+
+
+    /**
+     * Restaurant has many orders
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function orders()
+    {
+        return $this->hasMany(RestaurantOrder::class, 'restaurant_id', 'id');
+    }
 
     /**
      * Restaurant morhps to user

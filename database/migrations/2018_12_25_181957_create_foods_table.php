@@ -22,6 +22,12 @@ class CreateFoodsTable extends Migration
             $table->string('slug')->nullable();
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('food_categories')->onDelete('cascade');
+            $table->string('image_1')->nullable();
+            $table->string('image_2')->nullable();
+            $table->string('image_3')->nullable();
+            $table->string('image_4')->nullable();
+            $table->string('image_5')->nullable();
+            $table->string('image_6')->nullable();
             $table->timestamps();
         });
     }

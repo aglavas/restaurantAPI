@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\FoodCategory;
+namespace App\Http\Requests\RestaurantCategory;
 
 use App\Http\Requests\FoundationRequest;
 
-class FoodCategoryUpdateRequest extends FoundationRequest
+class RestaurantCategoryAttachRequest extends FoundationRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,9 @@ class FoodCategoryUpdateRequest extends FoundationRequest
     public function rules()
     {
         return [
-            'translation.hr.title' => 'required|string',
-            'translation.en.title' => 'string',
-            'translation.de.title' => 'string',
-            'translation.fr.title' => 'string',
-            'restaurant_id' => 'required|integer|exists:restaurants,id'
+            'restaurantCategoryId' => 'required|unique:restaurant_inventory_pivot,restaurant_category_id',
+            'inventory_categories' => 'required|array',
+            'inventory_categories.*' => 'required|integer|exists:restaurant_inventory_categories,id'
         ];
     }
 }

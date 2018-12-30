@@ -24,7 +24,7 @@ class FoodAdditionUpdateRequest extends FoundationRequest
     public function rules()
     {
         return [
-            'translation.hr.title' => 'string',
+            'translation.hr.title' => 'required|string',
             'translation.en.title' => 'string',
             'translation.de.title' => 'string',
             'translation.fr.title' => 'string',

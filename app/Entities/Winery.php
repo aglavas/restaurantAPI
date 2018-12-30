@@ -4,10 +4,11 @@ namespace App\Entities;
 
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Permission\Traits\HasRoles;
 
 class Winery extends Model
 {
-    use Translatable;
+    use Translatable, HasRoles;
 
     public $translatedAttributes = ['description'];
 
@@ -16,6 +17,8 @@ class Winery extends Model
     protected $fillable = [
         'address', 'open_hours','delivery', 'delivery_price', 'lat', 'long'
     ];
+
+    protected $guard_name = 'api';
 
     /**
      * Winery morhps to user
