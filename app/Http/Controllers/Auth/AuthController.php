@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Entities\Restaurant;
 use App\Entities\User;
+use App\Filters\UserFilter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AuthLoginRequest;
 use App\Http\Resources\AuthResource;
@@ -67,10 +68,10 @@ class AuthController extends Controller
      * @param User $user
      * @return \Illuminate\Http\JsonResponse
      */
-    public function getUserList(User $user)
+    public function getUserList(User $user, UserFilter $filter)
     {
-        $users = $user->with('userable')->paginate(10);
-
+        $users = $user->with('userable')->filter($filter)->paginate(10);
+        
         $userResource = UserListResource::collection($users);
 
         return $this->respondWithPagination($userResource,200);
