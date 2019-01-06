@@ -3,6 +3,7 @@
 namespace App\Http\Requests\RestaurantCategory;
 
 use App\Http\Requests\FoundationRequest;
+use Illuminate\Support\Facades\Auth;
 
 class RestaurantCategoryStoreRequest extends FoundationRequest
 {
@@ -13,6 +14,12 @@ class RestaurantCategoryStoreRequest extends FoundationRequest
      */
     public function authorize()
     {
+        $user = Auth::user();
+
+        if(!$user->can('create-restaurant-category')) {
+            return false;
+        }
+
         return true;
     }
 

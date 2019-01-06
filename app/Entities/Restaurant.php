@@ -18,7 +18,7 @@ class Restaurant extends Model
         'address', 'open_hours','delivery', 'delivery_price', 'lat', 'long'
     ];
 
-    protected $guard_name = 'api';
+    protected $guard_name = 'web';
 
 
     /**
@@ -49,6 +49,23 @@ class Restaurant extends Model
     public function foodCategories()
     {
         return $this->hasMany(FoodCategory::class, 'restaurant_id', 'id');
+    }
+
+    /**
+     * Restaurant has many food additions
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
+     */
+    public function foodAdditions()
+    {
+        return $this->hasManyThrough(
+            FoodAddition::class,
+            FoodCategory::class,
+            'restaurant_id',
+            'category_id',
+            'id',
+            'id'
+        );
     }
 
     /**

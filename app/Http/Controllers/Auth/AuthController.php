@@ -71,7 +71,7 @@ class AuthController extends Controller
     public function getUserList(User $user, UserFilter $filter)
     {
         $users = $user->with('userable')->filter($filter)->paginate(10);
-        
+
         $userResource = UserListResource::collection($users);
 
         return $this->respondWithPagination($userResource,200);

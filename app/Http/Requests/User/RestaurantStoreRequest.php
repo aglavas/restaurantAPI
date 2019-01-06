@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests\User;
 
-
 use App\Http\Requests\FoundationRequest;
+use Illuminate\Support\Facades\Auth;
 
 class RestaurantStoreRequest extends FoundationRequest
 {
@@ -15,6 +15,12 @@ class RestaurantStoreRequest extends FoundationRequest
      */
     public function authorize()
     {
+        $user = Auth::user();
+
+        if(!$user->can('create-restaurant')) {
+            return false;
+        }
+
         return true;
     }
 

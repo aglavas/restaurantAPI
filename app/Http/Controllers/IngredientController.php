@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Ingredient;
+use App\Http\Requests\Ingredient\IngredientDestroyRequest;
+use App\Http\Requests\Ingredient\IngredientListRequest;
+use App\Http\Requests\Ingredient\IngredientShowRequest;
 use App\Http\Requests\Ingredient\IngredientStoreRequest;
 use App\Http\Requests\Ingredient\FoodCategoryUpdateRequest;
 use App\Http\Requests\Ingredient\IngredientUpdateRequest;
@@ -12,10 +15,11 @@ class IngredientController extends Controller
     /**
      * Return single ingredient resource
      *
+     * @param IngredientShowRequest $request
      * @param Ingredient $ingredient
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show(Ingredient $ingredient)
+    public function show(IngredientShowRequest $request, Ingredient $ingredient)
     {
         $ingredient = $ingredient->load('translations');
 
@@ -25,10 +29,11 @@ class IngredientController extends Controller
     /**
      * Return list of ingredient resources
      *
+     * @param IngredientListRequest $request
      * @param Ingredient $ingredient
      * @return \Illuminate\Http\JsonResponse
      */
-    public function list(Ingredient $ingredient)
+    public function list(IngredientListRequest $request, Ingredient $ingredient)
     {
         $ingredients = $ingredient->with('translations')->paginate(10);
 
@@ -56,10 +61,11 @@ class IngredientController extends Controller
     /**
      * Delete ingredient resource
      *
+     * @param IngredientDestroyRequest $request
      * @param Ingredient $ingredient
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(Ingredient $ingredient)
+    public function destroy(IngredientDestroyRequest $request, Ingredient $ingredient)
     {
         try {
             $ingredient->delete();

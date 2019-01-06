@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Ingredient;
 
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\FoundationRequest;
 
 class IngredientStoreRequest extends FoundationRequest
@@ -14,6 +14,12 @@ class IngredientStoreRequest extends FoundationRequest
      */
     public function authorize()
     {
+        $user = Auth::user();
+
+        if(!$user->can('create-ingredient')) {
+            return false;
+        }
+
         return true;
     }
 

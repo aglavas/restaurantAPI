@@ -3,18 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Entities\FoodAddition;
+use App\Entities\Restaurant;
+use App\Http\Requests\FoodAddition\FoodAdditionDestroyRequest;
+use App\Http\Requests\FoodAddition\FoodAdditionShowRequest;
 use App\Http\Requests\FoodAddition\FoodAdditionStoreRequest;
 use App\Http\Requests\FoodAddition\FoodAdditionUpdateRequest;
+use App\Http\Requests\FoodAddition\FoodAdditionListRequest;
 
 class FoodAdditionController extends Controller
 {
     /**
      * Return single food addition instance
      *
+     * @param FoodAdditionShowRequest $request
      * @param FoodAddition $foodAddition
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show(FoodAddition $foodAddition)
+    public function show(FoodAdditionShowRequest $request, FoodAddition $foodAddition)
     {
         $foodAddition = $foodAddition->load(['translations', 'category']);
 
@@ -24,14 +29,19 @@ class FoodAdditionController extends Controller
     /**
      * Return list of food additions
      *
-     * @param FoodAddition $foodAddition
+     * @param FoodAdditionListRequest $request
+     * @param Restaurant $restaurant
      * @return \Illuminate\Http\JsonResponse
      */
-    public function list(FoodAddition $foodAddition)
+    public function list(FoodAdditionListRequest $request, Restaurant $restaurant)
     {
-        $foodAddition = $foodAddition->with(['translations', 'category'])->paginate(10);
+        $restaurant = $restaurant->find($request->input('restaurant_id'));
 
-        return $this->respondWithPagination($foodAddition, 200);
+        $foodAdditions = $restaurant->load(['foodAdditions' => function($q) {
+            $q->with(['translations', 'category']);
+        }]);
+
+        return $this->successDataResponse($foodAdditions, 200);
     }
 
     /**
@@ -48,7 +58,6 @@ class FoodAdditionController extends Controller
         try {
             $foodAddition = $foodAddition->create($request->input());
         } catch (\Exception $exception) {
-            dd($exception->getMessage());
             return $this->errorMessageResponse('Error while saving food addition', 500);
         }
 
@@ -58,10 +67,11 @@ class FoodAdditionController extends Controller
     /**
      * Delete food addition
      *
+     * @param FoodAdditionDestroyRequest $request
      * @param FoodAddition $foodAddition
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(FoodAddition $foodAddition)
+    public function destroy(FoodAdditionDestroyRequest $request, FoodAddition $foodAddition)
     {
         try {
             $foodAddition->delete();
@@ -83,7 +93,6 @@ class FoodAdditionController extends Controller
     {
         try {
             $foodAddition->update([
-                'category_id' => $request->input('category_id'),
                 'price' => $request->input('price')
             ]);
 

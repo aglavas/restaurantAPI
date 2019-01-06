@@ -3,18 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Entities\FoodCategory;
+use App\Entities\Restaurant;
+use App\Http\Requests\FoodCategory\FoodCategoryDestroyRequest;
+use App\Http\Requests\FoodCategory\FoodCategoryListRequest;
+use App\Http\Requests\FoodCategory\FoodCategoryShowRequest;
 use App\Http\Requests\FoodCategory\FoodCategoryStoreRequest;
 use App\Http\Requests\FoodCategory\FoodCategoryUpdateRequest;
+use Illuminate\Support\Facades\Auth;
 
 class FoodCategoryController extends Controller
 {
     /**
      * Return single food category instance
      *
+     * @param FoodCategoryShowRequest $request
      * @param FoodCategory $foodCategory
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show(FoodCategory $foodCategory)
+    public function show(FoodCategoryShowRequest $request, FoodCategory $foodCategory)
     {
         $foodCategory = $foodCategory->load(['translations', 'foods', 'additions']);
 
@@ -22,16 +28,21 @@ class FoodCategoryController extends Controller
     }
 
     /**
-     * Return list of food categories
+     * Returns list of food categories
      *
-     * @param FoodCategory $foodCategory
+     * @param FoodCategoryListRequest $request
+     * @param Restaurant $restaurant
      * @return \Illuminate\Http\JsonResponse
      */
-    public function list(FoodCategory $foodCategory)
+    public function list(FoodCategoryListRequest $request, Restaurant $restaurant)
     {
-        $foodCategory = $foodCategory->with(['translations', 'foods', 'additions'])->paginate(10);
+        $restaurant = $restaurant->find($request->input('restaurant_id'));
 
-        return $this->respondWithPagination($foodCategory, 200);
+        $foodCategory = $restaurant->load(['foodCategories' => function($q) {
+            $q->with(['translations', 'foods', 'additions']);
+        }]);
+
+        return $this->successDataResponse($foodCategory, 200);
     }
 
     /**
@@ -48,7 +59,6 @@ class FoodCategoryController extends Controller
         try {
             $foodCategory = $foodCategory->create($request->input());
         } catch (\Exception $exception) {
-            dd($exception->getMessage());
             return $this->errorMessageResponse('Error while saving food category', 500);
         }
 
@@ -58,10 +68,11 @@ class FoodCategoryController extends Controller
     /**
      * Delete food category
      *
+     * @param FoodCategoryDestroyRequest $request
      * @param FoodCategory $foodCategory
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(FoodCategory $foodCategory)
+    public function destroy(FoodCategoryDestroyRequest $request, FoodCategory $foodCategory)
     {
         try {
             $foodCategory->delete();
@@ -82,10 +93,6 @@ class FoodCategoryController extends Controller
     public function update(FoodCategoryUpdateRequest $request, FoodCategory $foodCategory)
     {
         try {
-            $foodCategory->update([
-                'restaurant_id' => $request->input('restaurant_id')
-            ]);
-
             foreach ($request->input('translation') as $language => $title) {
                 foreach ($title as $key => $value) {
                     $query[$key] = $request->input("translation.{$language}.{$key}");

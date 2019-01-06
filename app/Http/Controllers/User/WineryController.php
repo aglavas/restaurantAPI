@@ -8,11 +8,15 @@ use App\Entities\Winery;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\RestaurantUpdateRequest;
 use App\Http\Requests\User\UploadAvatarRequest;
+use App\Http\Requests\User\WineryDestroyRequest;
+use App\Http\Requests\User\WineryListRequest;
+use App\Http\Requests\User\WineryShowRequest;
 use App\Http\Requests\User\WineryStoreRequest;
 use App\Http\Requests\User\WineryUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Permission\Models\Role;
 
 class WineryController extends Controller
 {
@@ -23,11 +27,14 @@ class WineryController extends Controller
      * @param WineryStoreRequest $request
      * @param User $user
      * @param Winery $winery
+     * @param Role $role
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(WineryStoreRequest $request, User $user, Winery $winery)
+    public function store(WineryStoreRequest $request, User $user, Winery $winery, Role $role)
     {
         $request->merge($request->input('translation'));
+
+        $role = $role->findByName('winery', 'web');
 
         try {
             $user = $user->create([
@@ -35,6 +42,8 @@ class WineryController extends Controller
                 'email' => $request->input('email'),
                 'password' => $request->input('email'),
             ]);
+
+            $user->assignRole($role);
 
             $winery = $winery->create($request->input());
 
@@ -80,10 +89,11 @@ class WineryController extends Controller
     /**
      * Delete winery resource
      *
+     * @param WineryDestroyRequest $request
      * @param Winery $winery
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(Winery $winery)
+    public function destroy(WineryDestroyRequest $request, Winery $winery)
     {
         try {
             $winery->delete();
@@ -97,10 +107,11 @@ class WineryController extends Controller
     /**
      * Return single winery resource
      *
+     * @param WineryShowRequest $request
      * @param Winery $winery
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show(Winery $winery)
+    public function show(WineryShowRequest $request, Winery $winery)
     {
         $winery = $winery->load('translations');
 
@@ -111,10 +122,11 @@ class WineryController extends Controller
     /**
      * Return list of winery resources
      *
+     * @param WineryListRequest $request
      * @param Winery $winery
      * @return \Illuminate\Http\JsonResponse
      */
-    public function list(Winery $winery)
+    public function list(WineryListRequest $request, Winery $winery)
     {
         $winery = $winery->with('translations')->paginate(10);
 

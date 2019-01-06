@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests\Food;
 
+use App\Entities\Food;
 use App\Http\Requests\FoundationRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FoodStoreRequest extends FoundationRequest
 {
@@ -13,6 +16,14 @@ class FoodStoreRequest extends FoundationRequest
      */
     public function authorize()
     {
+        $food = new Food();
+
+        $user = Auth::user();
+
+        if((!$user->can('create', $food)) || !$user->can('create-food')) {
+            return false;
+        }
+
         return true;
     }
 
@@ -25,7 +36,7 @@ class FoodStoreRequest extends FoundationRequest
     {
         return [
             'restaurant_id' => 'required|integer|exists:restaurants,id',
-            'category_id' => 'required|integer|exists:food_categories,id',
+            'category_id' => 'required|integer|existsWith:food_categories,id,restaurant_id,'. Request::capture()->input('restaurant_id'),
             'price' => 'required|numeric',
             'calories' => 'required|numeric',
             'ingredients' => 'required|array',

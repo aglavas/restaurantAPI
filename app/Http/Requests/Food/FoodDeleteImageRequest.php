@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Food;
 
 use App\Http\Requests\FoundationRequest;
+use Illuminate\Support\Facades\Auth;
 
 class FoodDeleteImageRequest extends FoundationRequest
 {
@@ -13,6 +14,12 @@ class FoodDeleteImageRequest extends FoundationRequest
      */
     public function authorize()
     {
+        $user = Auth::user();
+
+        if((!$user->can('deleteImage', $this->all()['food'])) || (!$user->can('delete-image-food'))) {
+            return false;
+        }
+
         return true;
     }
 

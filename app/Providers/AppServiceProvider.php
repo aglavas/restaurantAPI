@@ -19,6 +19,9 @@ class AppServiceProvider extends ServiceProvider
 
         Validator::extend('imageExists', 'App\Validators\CustomValidator@imageExists');
         Validator::replacer('imageExists', 'App\Validators\CustomValidator@imageExistsReplacer');
+
+        Validator::extend('existsWith', 'App\Validators\CustomValidator@existsWith');
+        Validator::replacer('existsWith', 'App\Validators\CustomValidator@existsWithReplacer');
     }
 
     /**

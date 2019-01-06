@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Entities\RestaurantInventoryCategory;
+use App\Http\Requests\RestaurantCategory\RestaurantCategoryListRequest;
+use App\Http\Requests\RestaurantInventoryCategory\RestaurantInventoryCategoryDestroyRequest;
+use App\Http\Requests\RestaurantInventoryCategory\RestaurantInventoryCategoryShowRequest;
 use App\Http\Requests\RestaurantInventoryCategory\RestaurantInventoryCategoryStoreRequest;
 use App\Http\Requests\RestaurantInventoryCategory\RestaurantInventoryCategoryUpdateRequest;
 use App\Http\Requests\RestaurantInventoryCategory\RestaurantInventoryUploadAvatarRequest;
@@ -13,10 +16,11 @@ class RestaurantInventoryCategoryController extends Controller
     /**
      * Return restaurant inventory category entity
      *
+     * @param RestaurantInventoryCategoryShowRequest $request
      * @param RestaurantInventoryCategory $restaurantInventoryCategory
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show(RestaurantInventoryCategory $restaurantInventoryCategory)
+    public function show(RestaurantInventoryCategoryShowRequest $request,  RestaurantInventoryCategory $restaurantInventoryCategory)
     {
         $restaurantInventoryCategory = $restaurantInventoryCategory->load(['translations']);
 
@@ -26,10 +30,11 @@ class RestaurantInventoryCategoryController extends Controller
     /**
      * Returns list of restaurant inventory category
      *
+     * @param RestaurantCategoryListRequest $request
      * @param RestaurantInventoryCategory $restaurantInventoryCategory
      * @return \Illuminate\Http\JsonResponse
      */
-    public function list(RestaurantInventoryCategory $restaurantInventoryCategory)
+    public function list(RestaurantCategoryListRequest $request, RestaurantInventoryCategory $restaurantInventoryCategory)
     {
         $restaurantInventoryCategory = $restaurantInventoryCategory->with(['translations'])->paginate(10);
 
@@ -60,10 +65,11 @@ class RestaurantInventoryCategoryController extends Controller
     /**
      * Deletes restaurant inventory category
      *
+     * @param RestaurantInventoryCategoryDestroyRequest $request
      * @param RestaurantInventoryCategory $restaurantInventoryCategory
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(RestaurantInventoryCategory $restaurantInventoryCategory)
+    public function destroy(RestaurantInventoryCategoryDestroyRequest $request, RestaurantInventoryCategory $restaurantInventoryCategory)
     {
         try {
             $restaurantInventoryCategory->delete();

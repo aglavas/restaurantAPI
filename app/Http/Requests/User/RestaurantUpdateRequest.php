@@ -3,6 +3,7 @@
 namespace App\Http\Requests\User;
 
 use App\Http\Requests\FoundationRequest;
+use Illuminate\Support\Facades\Auth;
 
 class RestaurantUpdateRequest extends FoundationRequest
 {
@@ -13,6 +14,12 @@ class RestaurantUpdateRequest extends FoundationRequest
      */
     public function authorize()
     {
+        $user = Auth::user();
+
+        if((!$user->can('update', $this->all()['restaurant'])) || (!$user->can('update-restaurant'))) {
+            return false;
+        }
+
         return true;
     }
 

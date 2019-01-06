@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\RestaurantInventoryCategory;
 
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\FoundationRequest;
 
 class RestaurantInventoryUploadAvatarRequest extends FoundationRequest
@@ -14,6 +14,12 @@ class RestaurantInventoryUploadAvatarRequest extends FoundationRequest
      */
     public function authorize()
     {
+        $user = Auth::user();
+
+        if(!$user->can('upload-avatar-restaurant-inventory-category')) {
+            return false;
+        }
+
         return true;
     }
 

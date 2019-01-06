@@ -3,6 +3,7 @@
 namespace App\Http\Requests\FoodAddition;
 
 use App\Http\Requests\FoundationRequest;
+use Illuminate\Support\Facades\Auth;
 
 class FoodAdditionUpdateRequest extends FoundationRequest
 {
@@ -13,6 +14,12 @@ class FoodAdditionUpdateRequest extends FoundationRequest
      */
     public function authorize()
     {
+        $user = Auth::user();
+
+        if((!$user->can('update', $this->all()['foodAddition'])) || (!$user->can('update-food-addition'))) {
+            return false;
+        }
+
         return true;
     }
 
@@ -28,7 +35,6 @@ class FoodAdditionUpdateRequest extends FoundationRequest
             'translation.en.title' => 'string',
             'translation.de.title' => 'string',
             'translation.fr.title' => 'string',
-            'category_id' => 'required|integer|exists:restaurants,id',
             'price' => 'required|numeric',
         ];
     }

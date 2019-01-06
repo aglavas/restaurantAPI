@@ -3,6 +3,7 @@
 namespace App\Http\Requests\RestaurantInventoryCategory;
 
 use App\Http\Requests\FoundationRequest;
+use Illuminate\Support\Facades\Auth;
 
 class RestaurantInventoryCategoryUpdateRequest extends FoundationRequest
 {
@@ -13,6 +14,12 @@ class RestaurantInventoryCategoryUpdateRequest extends FoundationRequest
      */
     public function authorize()
     {
+        $user = Auth::user();
+
+        if(!$user->can('update-restaurant-inventory-category')) {
+            return false;
+        }
+
         return true;
     }
 

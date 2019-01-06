@@ -11,10 +11,14 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        \App\Entities\User::create([
+        $role = \Spatie\Permission\Models\Role::findByName('admin');
+
+        $admin = \App\Entities\User::create([
             'name' => 'admin',
             'email' => 'admin@admin.com',
             'password' => 'pass',
         ]);
+
+        $admin->assignRole($role);
     }
 }

@@ -3,21 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Food;
+use App\Entities\Restaurant;
 use App\Http\Requests\Food\FoodDeleteImageRequest;
+use App\Http\Requests\Food\FoodDestroyRequest;
+use App\Http\Requests\Food\FoodListRequest;
 use App\Http\Requests\Food\FoodStoreImageRequest;
 use App\Http\Requests\Food\FoodStoreRequest;
 use App\Http\Requests\Food\FoodUpdateRequest;
+use App\Http\Requests\Food\FoodShowRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class FoodController extends Controller
 {
     /**
      * Return single food resource
      *
+     * @param FoodShowRequest $request
      * @param Food $food
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show(Food $food)
+    public function show(FoodShowRequest $request, Restaurant $restaurant, Food $food)
     {
         $food = $food->load(['translations', 'ingredients', 'category']);
 
@@ -27,14 +33,19 @@ class FoodController extends Controller
     /**
      * Return list of food resources
      *
-     * @param Food $food
+     * @param FoodListRequest $request
+     * @param Restaurant $restaurant
      * @return \Illuminate\Http\JsonResponse
      */
-    public function list(Food $food)
+    public function list(FoodListRequest $request, Restaurant $restaurant)
     {
-        $foods = $food->with(['translations', 'ingredients', 'category'])->paginate(10);
+        $restaurant = $restaurant->find($request->input('restaurant_id'));
 
-        return $this->respondWithPagination($foods, 200);
+        $foods = $restaurant->load(['foods' => function($q) {
+            $q->with(['translations', 'ingredients', 'category']);
+        }]);
+
+        return $this->successDataResponse($foods, 200);
     }
 
     /**
@@ -64,10 +75,11 @@ class FoodController extends Controller
     /**
      * Delete food resource
      *
+     * @param FoodDestroyRequest $request
      * @param Food $food
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(Food $food)
+    public function destroy(FoodDestroyRequest $request, Food $food)
     {
         try {
             $food->delete();
@@ -89,7 +101,6 @@ class FoodController extends Controller
     {
         try {
             $food->update([
-                'restaurant_id' => $request->input('restaurant_id'),
                 'category_id' => $request->input('category_id'),
                 'price' => $request->input('price'),
                 'calories' => $request->input('calories'),

@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Ingredient;
 
 use App\Http\Requests\FoundationRequest;
+use Illuminate\Support\Facades\Auth;
 
 class IngredientUpdateRequest extends FoundationRequest
 {
@@ -13,6 +14,12 @@ class IngredientUpdateRequest extends FoundationRequest
      */
     public function authorize()
     {
+        $user = Auth::user();
+
+        if(!$user->can('update-ingredient')) {
+            return false;
+        }
+
         return true;
     }
 

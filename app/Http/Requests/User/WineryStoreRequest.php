@@ -3,6 +3,7 @@
 namespace App\Http\Requests\User;
 
 use App\Http\Requests\FoundationRequest;
+use Illuminate\Support\Facades\Auth;
 
 class WineryStoreRequest extends FoundationRequest
 {
@@ -14,6 +15,12 @@ class WineryStoreRequest extends FoundationRequest
      */
     public function authorize()
     {
+        $user = Auth::user();
+
+        if(!$user->can('create-winery')) {
+            return false;
+        }
+
         return true;
     }
 

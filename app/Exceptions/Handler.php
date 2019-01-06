@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
@@ -62,6 +63,8 @@ class Handler extends ExceptionHandler
             return $this->errorOutput('Unauthenticated.', 401);
         } elseif ($exception instanceof NotFoundHttpException) {
             return $this->errorOutput('Route not found.', 404);
+        } elseif ($exception instanceof AuthorizationException) {
+            return $this->errorOutput($exception->getMessage(), 403);
         }
 
         return $this->errorOutput($exception->getMessage(), 500);

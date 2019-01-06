@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests\RestaurantCategory;
 
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\FoundationRequest;
 
-class UploadAvatarRequest extends FoundationRequest
+class RestaurantCategoryShowRequest extends FoundationRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,6 +14,12 @@ class UploadAvatarRequest extends FoundationRequest
      */
     public function authorize()
     {
+        $user = Auth::user();
+
+        if(!$user->can('show-restaurant-category')) {
+            return false;
+        }
+
         return true;
     }
 
@@ -25,8 +31,6 @@ class UploadAvatarRequest extends FoundationRequest
     public function rules()
     {
         return [
-            'avatar' => 'required|image'
         ];
     }
-
 }

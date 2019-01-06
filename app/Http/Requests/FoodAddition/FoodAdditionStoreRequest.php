@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\FoodAddition;
 
+use App\Entities\FoodAddition;
 use App\Http\Requests\FoundationRequest;
+use Illuminate\Support\Facades\Auth;
 
 class FoodAdditionStoreRequest extends FoundationRequest
 {
@@ -13,6 +15,14 @@ class FoodAdditionStoreRequest extends FoundationRequest
      */
     public function authorize()
     {
+        $user = Auth::user();
+
+        $foodAddition = new FoodAddition();
+
+        if((!$user->can('create', $foodAddition)) || (!$user->can('create-food-addition'))) {
+            return false;
+        }
+
         return true;
     }
 

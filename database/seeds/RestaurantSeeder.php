@@ -17,6 +17,8 @@ class RestaurantSeeder extends Seeder
             'password' => 'pass',
         ]);
 
+        $role = \Spatie\Permission\Models\Role::findByName('restaurant');
+
         $params = [
             'address' => 'Adresa 1',
             'open_hours' => '0-24',
@@ -33,6 +35,8 @@ class RestaurantSeeder extends Seeder
         ];
 
         $restaurant = \App\Entities\Restaurant::create($params);
+
+        $user->assignRole($role);
 
         $restaurant->user()->save($user);
     }

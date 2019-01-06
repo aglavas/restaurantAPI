@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Entities\RestaurantCategory;
 use App\Http\Requests\RestaurantCategory\RestaurantCategoryAttachRequest;
+use App\Http\Requests\RestaurantCategory\RestaurantCategoryDestroyRequest;
+use App\Http\Requests\RestaurantCategory\RestaurantCategoryListRequest;
+use App\Http\Requests\RestaurantCategory\RestaurantCategoryShowRequest;
 use App\Http\Requests\RestaurantCategory\RestaurantCategoryStoreRequest;
 use App\Http\Requests\RestaurantCategory\RestaurantCategorySyncRequest;
 use App\Http\Requests\RestaurantCategory\RestaurantCategoryUpdateRequest;
@@ -13,10 +16,11 @@ class RestaurantCategoryController extends Controller
     /**
      * Return single restaurant category instance
      *
+     * @param RestaurantCategoryShowRequest $request
      * @param RestaurantCategory $restaurantCategory
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show(RestaurantCategory $restaurantCategory)
+    public function show(RestaurantCategoryShowRequest $request, RestaurantCategory $restaurantCategory)
     {
         $restaurantCategory = $restaurantCategory->load(['translations', 'inventoryCategory']);
 
@@ -26,10 +30,11 @@ class RestaurantCategoryController extends Controller
     /**
      * Returns list of restaurant categories
      *
+     * @param RestaurantCategoryListRequest $request
      * @param RestaurantCategory $restaurantCategory
      * @return \Illuminate\Http\JsonResponse
      */
-    public function list(RestaurantCategory $restaurantCategory)
+    public function list(RestaurantCategoryListRequest $request, RestaurantCategory $restaurantCategory)
     {
         $restaurantCategory = $restaurantCategory->with(['translations', 'inventoryCategory'])->paginate(10);
 
@@ -60,10 +65,11 @@ class RestaurantCategoryController extends Controller
     /**
      * Deletes restaurant category
      *
+     * @param RestaurantCategoryDestroyRequest $request
      * @param RestaurantCategory $restaurantCategory
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(RestaurantCategory $restaurantCategory)
+    public function destroy(RestaurantCategoryDestroyRequest $request, RestaurantCategory $restaurantCategory)
     {
         try {
             $restaurantCategory->delete();
@@ -92,7 +98,6 @@ class RestaurantCategoryController extends Controller
                 $restaurantCategory->translations()->where('locale', $language)->update($query);
             }
         } catch (\Exception $exception) {
-            dd($exception->getMessage());
             return $this->errorMessageResponse('Error while updating restaurant category.', 500);
         }
 

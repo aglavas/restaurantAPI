@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         \Illuminate\Database\Eloquent\Model::reguard();
 
+        $this->call(RolesAndPermissionsSeeder::class);
         $this->call(AdminSeeder::class);
         $this->call(RestaurantSeeder::class);
         $this->call(FoodCategorySeeder::class);

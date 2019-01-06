@@ -5,12 +5,17 @@ namespace App\Http\Controllers\User;
 use App\Entities\Restaurant;
 use App\Entities\User;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\RestaurantDestroyRequest;
+use App\Http\Requests\User\RestaurantListRequest;
+use App\Http\Requests\User\RestaurantMenuRequest;
+use App\Http\Requests\User\RestaurantShowRequest;
 use App\Http\Requests\User\RestaurantStoreRequest;
 use App\Http\Requests\User\RestaurantUpdateRequest;
 use App\Http\Requests\User\UploadAvatarRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Permission\Models\Role;
 
 class RestaurantController extends Controller
 {
@@ -21,11 +26,14 @@ class RestaurantController extends Controller
      * @param RestaurantStoreRequest $request
      * @param User $user
      * @param Restaurant $restaurant
+     * @param Role $role
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(RestaurantStoreRequest $request, User $user, Restaurant $restaurant)
+    public function store(RestaurantStoreRequest $request, User $user, Restaurant $restaurant, Role $role)
     {
         $request->merge($request->input('translation'));
+
+        $role = $role->findByName('restaurant', 'web');
 
         try {
             $user = $user->create([
@@ -34,11 +42,14 @@ class RestaurantController extends Controller
                 'password' => $request->input('password'),
             ]);
 
+            $user->assignRole($role);
+
             $restaurant = $restaurant->create($request->input());
 
             $restaurant->user()->save($user);
+
         } catch (\Exception $exception) {
-            return $this->errorMessageResponse('Error while updating restaurant', 500);
+            return $this->errorMessageResponse('Error while saving restaurant', 500);
         }
 
         return $this->successDataResponse($restaurant, 200);
@@ -74,17 +85,18 @@ class RestaurantController extends Controller
             return $this->errorMessageResponse('Error while updating restaurant', 500);
         }
 
-        return $this->successDataResponse($restaurant, 200);
+        return $this->successDataResponse($restaurant->load('translations'), 200);
     }
 
 
     /**
      * Delete restaurant resource
      *
+     * @param RestaurantDestroyRequest $request
      * @param Restaurant $restaurant
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(Restaurant $restaurant)
+    public function destroy(RestaurantDestroyRequest $request, Restaurant $restaurant)
     {
         try {
             $restaurant->delete();
@@ -98,10 +110,11 @@ class RestaurantController extends Controller
     /**
      * Return single restaurant resource
      *
+     * @param RestaurantShowRequest $request
      * @param Restaurant $restaurant
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show(Restaurant $restaurant)
+    public function show(RestaurantShowRequest $request, Restaurant $restaurant)
     {
         $restaurant = $restaurant->load('translations');
 
@@ -111,10 +124,11 @@ class RestaurantController extends Controller
     /**
      * Return list of restaurant resources
      *
+     * @param RestaurantListRequest $request
      * @param Restaurant $restaurant
      * @return \Illuminate\Http\JsonResponse
      */
-    public function list(Restaurant $restaurant)
+    public function list(RestaurantListRequest $request, Restaurant $restaurant)
     {
         $restaurant = $restaurant->with('translations')->paginate(10);
 
@@ -143,11 +157,15 @@ class RestaurantController extends Controller
     }
 
 
-    public function getMenu()
+    /**
+     * Get restaurant menu
+     *
+     * @param RestaurantMenuRequest $request
+     * @param Restaurant $restaurant
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getMenu(RestaurantMenuRequest $request, Restaurant $restaurant)
     {
-        /** @var Restaurant $restaurant */
-        $restaurant = Auth::user()->userable;
-
         $foods = $restaurant->foods()->with(['category', 'ingredients'])->get();
 
         return $this->successDataResponse($foods, 200);

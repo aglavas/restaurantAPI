@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\FoodCategory;
 
+use App\Entities\FoodCategory;
 use App\Http\Requests\FoundationRequest;
+use Illuminate\Support\Facades\Auth;
 
 class FoodCategoryStoreRequest extends FoundationRequest
 {
@@ -13,6 +15,14 @@ class FoodCategoryStoreRequest extends FoundationRequest
      */
     public function authorize()
     {
+        $foodCategory = new FoodCategory();
+
+        $user = Auth::user();
+
+        if((!$user->can('create', $foodCategory)) ||  !$user->can('create-food-category')) {
+            return false;
+        }
+
         return true;
     }
 

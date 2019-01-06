@@ -18,7 +18,7 @@ class Winery extends Model
         'address', 'open_hours','delivery', 'delivery_price', 'lat', 'long'
     ];
 
-    protected $guard_name = 'api';
+    protected $guard_name = 'web';
 
     /**
      * Winery morhps to user

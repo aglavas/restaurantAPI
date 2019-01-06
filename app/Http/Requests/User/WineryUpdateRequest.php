@@ -3,6 +3,7 @@
 namespace App\Http\Requests\User;
 
 use App\Http\Requests\FoundationRequest;
+use Illuminate\Support\Facades\Auth;
 
 class WineryUpdateRequest extends FoundationRequest
 {
@@ -13,6 +14,12 @@ class WineryUpdateRequest extends FoundationRequest
      */
     public function authorize()
     {
+        $user = Auth::user();
+
+        if((!$user->can('update', $this->all()['winery'])) || (!$user->can('update-winery'))) {
+            return false;
+        }
+
         return true;
     }
 
