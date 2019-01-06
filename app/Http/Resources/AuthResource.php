@@ -19,7 +19,8 @@ class AuthResource extends JsonResource
                 'name' => $this->name,
                 'email' => $this->email,
                 'entity_type' => $this->userable_type,
-                'token' => $this->createToken(env('APP_NAME'))->accessToken
+                'token' => $this->createToken(env('APP_NAME'))->accessToken,
+                'role' => $this->roles()->get()->first()->name,
         ];
     }
 }

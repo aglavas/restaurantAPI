@@ -19,7 +19,8 @@ class UserListResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'entity_type' => $this->userable_type,
-            'userable' => $this->userable
+            'userable' => $this->userable,
+            'role' => $this->roles()->get()->first()->name,
         ];
     }
 }
