@@ -24,6 +24,8 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => 'show-restaurant']);
         Permission::create(['name' => 'list-restaurant']);
         Permission::create(['name' => 'upload-avatar-restaurant']);
+        Permission::create(['name' => 'upload-image-restaurant']);
+        Permission::create(['name' => 'destroy-image-restaurant']);
         Permission::create(['name' => 'get-menu-restaurant']);
 
         Permission::create(['name' => 'create-food']);
@@ -80,6 +82,8 @@ class RolesAndPermissionsSeeder extends Seeder
             'destroy-restaurant',
             'show-restaurant',
             'upload-avatar-restaurant',
+            'upload-image-restaurant',
+            'destroy-image-restaurant',
             'get-menu-restaurant',
             'create-food',
             'update-food',
@@ -105,7 +109,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'show-ingredient',
             'list-ingredients',
             'show-restaurant-category',
-            'list-restaurant-category',
+            'list-restaurant-category'
         );
 
         // winery permissions

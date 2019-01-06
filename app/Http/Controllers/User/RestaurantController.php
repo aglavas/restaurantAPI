@@ -5,10 +5,12 @@ namespace App\Http\Controllers\User;
 use App\Entities\Restaurant;
 use App\Entities\User;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\RestaurantDeleteImageRequest;
 use App\Http\Requests\User\RestaurantDestroyRequest;
 use App\Http\Requests\User\RestaurantListRequest;
 use App\Http\Requests\User\RestaurantMenuRequest;
 use App\Http\Requests\User\RestaurantShowRequest;
+use App\Http\Requests\User\RestaurantStoreImageRequest;
 use App\Http\Requests\User\RestaurantStoreRequest;
 use App\Http\Requests\User\RestaurantUpdateRequest;
 use App\Http\Requests\User\UploadAvatarRequest;
@@ -171,4 +173,78 @@ class RestaurantController extends Controller
         return $this->successDataResponse($foods, 200);
     }
 
+
+    /**
+     * Upload restaurant image
+     *
+     * @param RestaurantStoreImageRequest $request
+     * @param Restaurant $restaurant
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function postImage(RestaurantStoreImageRequest $request, Restaurant $restaurant)
+    {
+        $lastActive = '';
+        $currentActive = '';
+
+        for($i = 1; $i <= 6; $i++) {
+            $id = 'image_' . $i;
+
+            if($restaurant->{$id}) {
+                $lastActive = $id;
+            }
+
+            if ($restaurant->{$id} && $i === 6) {
+                $lastActive = null;
+            }
+        }
+
+        if($lastActive === null) {
+            return $this->errorMessageResponse('Maximum image number uploaded', 400);
+        }
+
+        if($lastActive === '') {
+            $currentActive = 'image_1';
+        } else {
+            $lastActiveArray = explode('_', $lastActive);
+            $lastActiveArray[1]++;
+
+            $currentActive = implode('_', $lastActiveArray);
+        }
+
+        $restaurantImgId = rand();
+
+        $restaurant->{$currentActive} = $restaurantImgId;
+        $restaurant->save();
+
+        $request->image->storeAs('restaurants/gallery/' . $restaurant->id . '/' , $restaurantImgId, 's3', "public");
+
+        $url = Storage::cloud()->url('api-test-v2/restaurants/gallery/'. $restaurant->id . '/' . $restaurantImgId);
+
+        return $this->successDataResponse($url, 200);
+    }
+
+    /**
+     * Delete restaurant image
+     *
+     * @param RestaurantDeleteImageRequest $request
+     * @param Restaurant $restaurant
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroyImage(RestaurantDeleteImageRequest $request, Restaurant $restaurant)
+    {
+        for($i = 1; $i <= 6; $i++) {
+            $id = 'image_' . $i;
+            if($restaurant->{$id} == $request->input('image_id')) {
+                $restaurant->{$id} = '';
+                $restaurant->save();
+                break;
+            }
+        }
+
+        $delete = 'restaurants/gallery/' . $restaurant->id . '/' . $request->input('image_id');
+
+        Storage::disk('s3')->delete($delete);
+
+        return $this->successDataResponse('Image deleted successfully', 200);
+    }
 }

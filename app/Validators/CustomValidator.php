@@ -10,8 +10,51 @@ use Illuminate\Support\Facades\DB;
 
 class CustomValidator
 {
+
     /**
-     * Validation rule for checking timestamp that need to be equal or after specified timestamp
+     * Validation rule for checking does restaurant image exists
+     *
+     * @param $message
+     * @param $attribute
+     * @param $rule
+     * @param $parameters
+     * @return bool
+     */
+    public function restaurantImageExists($message, $attribute, $rule, $parameters)
+    {
+        $count = DB::table('restaurants')
+            ->where('image_1', $attribute)
+            ->orWhere('image_2', $attribute)
+            ->orWhere('image_3', $attribute)
+            ->orWhere('image_4', $attribute)
+            ->orWhere('image_5', $attribute)
+            ->orWhere('image_6', $attribute)
+            ->count();
+
+        if (!$count) {
+            return false;
+        }
+        return true;
+    }
+    /**
+     *
+     * Replacer for custom message
+     *
+     * @param $message
+     * @param $attribute
+     * @param $rule
+     * @param $parameters
+     * @return string
+     */
+    public function restaurantImageExistsReplacer($message, $attribute, $rule, $parameters)
+    {
+        $message = "Image with that id does not exists.";
+        return $message;
+    }
+
+
+    /**
+     * Validation rule for checking does food image exists
      *
      * @param $message
      * @param $attribute

@@ -34,6 +34,8 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::get('user/restaurant/{restaurant}', 'User\RestaurantController@show');
     Route::get('user/restaurant', 'User\RestaurantController@list');
     Route::get('user/restaurant/{restaurant}/menu', 'User\RestaurantController@getMenu');
+    Route::post('user/restaurant/{restaurant}/image', 'User\RestaurantController@postImage');
+    Route::delete('user/restaurant/{restaurant}/image', 'User\RestaurantController@destroyImage');
 
 
     // Winery

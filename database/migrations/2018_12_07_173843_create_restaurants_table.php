@@ -21,6 +21,12 @@ class CreateRestaurantsTable extends Migration
             $table->string('delivery_price');
             $table->decimal('lat');
             $table->decimal('long');
+            $table->string('image_1')->nullable();
+            $table->string('image_2')->nullable();
+            $table->string('image_3')->nullable();
+            $table->string('image_4')->nullable();
+            $table->string('image_5')->nullable();
+            $table->string('image_6')->nullable();
             $table->timestamps();
         });
     }

@@ -57,4 +57,28 @@ class RestaurantPolicy
     {
         return $user->userable_id === $restaurant->id;
     }
+
+    /**
+     * Determine whether the user can upload restaurant image
+     *
+     * @param User $user
+     * @param Restaurant $restaurant
+     * @return bool
+     */
+    public function uploadImage(User $user, Restaurant $restaurant)
+    {
+        return $user->userable_id === $restaurant->id;
+    }
+
+    /**
+     * Determine whether the user can delete restaurant image
+     *
+     * @param User $user
+     * @param Restaurant $restaurant
+     * @return bool
+     */
+    public function deleteImage(User $user, Restaurant $restaurant)
+    {
+        return $user->userable_id === $restaurant->id;
+    }
 }

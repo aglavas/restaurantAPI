@@ -17,6 +17,9 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
+        Validator::extend('restaurantImageExists', 'App\Validators\CustomValidator@restaurantImageExists');
+        Validator::replacer('restaurantImageExists', 'App\Validators\CustomValidator@restaurantImageExistsReplacer');
+
         Validator::extend('imageExists', 'App\Validators\CustomValidator@imageExists');
         Validator::replacer('imageExists', 'App\Validators\CustomValidator@imageExistsReplacer');
 
