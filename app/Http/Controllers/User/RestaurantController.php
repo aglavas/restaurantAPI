@@ -5,6 +5,8 @@ namespace App\Http\Controllers\User;
 use App\Entities\Restaurant;
 use App\Entities\User;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\RestaurantAttachInventoryRequest;
+use App\Http\Requests\User\RestaurantAttachRequest;
 use App\Http\Requests\User\RestaurantDeleteImageRequest;
 use App\Http\Requests\User\RestaurantDestroyRequest;
 use App\Http\Requests\User\RestaurantListRequest;
@@ -12,7 +14,10 @@ use App\Http\Requests\User\RestaurantMenuRequest;
 use App\Http\Requests\User\RestaurantShowRequest;
 use App\Http\Requests\User\RestaurantStoreImageRequest;
 use App\Http\Requests\User\RestaurantStoreRequest;
+use App\Http\Requests\User\RestaurantSyncInventoryRequest;
+use App\Http\Requests\User\RestaurantSyncRequest;
 use App\Http\Requests\User\RestaurantUpdateRequest;
+use App\Http\Requests\User\RestaurantUploadAvatarRequest;
 use App\Http\Requests\User\UploadAvatarRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -118,7 +123,7 @@ class RestaurantController extends Controller
      */
     public function show(RestaurantShowRequest $request, Restaurant $restaurant)
     {
-        $restaurant = $restaurant->load('translations');
+        $restaurant = $restaurant->load('translations' , 'categories', 'inventory');
 
         return $this->successDataResponse($restaurant, 200);
     }
@@ -132,21 +137,20 @@ class RestaurantController extends Controller
      */
     public function list(RestaurantListRequest $request, Restaurant $restaurant)
     {
-        $restaurant = $restaurant->with('translations')->paginate(10);
+        $restaurant = $restaurant->with('translations','categories', 'inventory')->paginate(10);
 
         return $this->respondWithPagination($restaurant, 200);
     }
 
     /**
-     * Upload profile picture
+     * Upload restaurant avatar
      *
-     * @param UploadAvatarRequest $request
-     * @return mixed
+     * @param RestaurantUploadAvatarRequest $request
+     * @param Restaurant $restaurant
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function uploadAvatar(UploadAvatarRequest $request)
+    public function uploadAvatar(RestaurantUploadAvatarRequest $request, Restaurant $restaurant)
     {
-        $restaurant = Auth::user();
-
         $delete = 'restaurants/avatars' . '/' . $restaurant->id;
 
         Storage::disk('s3')->delete($delete);
@@ -246,5 +250,85 @@ class RestaurantController extends Controller
         Storage::disk('s3')->delete($delete);
 
         return $this->successDataResponse('Image deleted successfully', 200);
+    }
+
+    /**
+     * Attach restaurant categories to restaurant
+     *
+     * @param RestaurantAttachRequest $request
+     * @param Restaurant $restaurant
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function attachCategories(RestaurantAttachRequest $request, Restaurant $restaurant)
+    {
+        $restaurant = $restaurant->find($request->input('restaurant_id'));
+
+        try {
+            $restaurant->categories()->attach($request->input('restaurant_categories'));
+        } catch (\Exception $exception) {
+            return $this->errorMessageResponse('Error while associating restaurant categories to restaurant.', 500);
+        }
+
+        return $this->successDataResponse($restaurant->load(['categories']), 200);
+    }
+
+    /**
+     * Sync restaurant categories to restaurant
+     *
+     * @param RestaurantSyncRequest $request
+     * @param Restaurant $restaurant
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function syncCategories(RestaurantSyncRequest $request, Restaurant $restaurant)
+    {
+        $restaurant = $restaurant->find($request->input('restaurant_id'));
+
+        try {
+            $restaurant->categories()->sync($request->input('restaurant_categories'));
+        } catch (\Exception $exception) {
+            return $this->errorMessageResponse('Error while syncing restaurant categories to restaurant.', 500);
+        }
+
+        return $this->successDataResponse($restaurant->load(['categories']), 200);
+    }
+
+    /**
+     * Attach restaurant inventory to restaurant
+     *
+     * @param RestaurantAttachInventoryRequest $request
+     * @param Restaurant $restaurant
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function attachInventory(RestaurantAttachInventoryRequest $request, Restaurant $restaurant)
+    {
+        $restaurant = $restaurant->find($request->input('restaurant_id'));
+
+        try {
+            $restaurant->inventory()->attach($request->input('restaurant_inventory'));
+        } catch (\Exception $exception) {
+            return $this->errorMessageResponse('Error while associating restaurant inventory categories to restaurant.', 500);
+        }
+
+        return $this->successDataResponse($restaurant->load(['categories', 'inventory']), 200);
+    }
+
+    /**
+     * Sync restaurant inventory to restaurant
+     *
+     * @param RestaurantSyncInventoryRequest $request
+     * @param Restaurant $restaurant
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function syncInventory(RestaurantSyncInventoryRequest $request , Restaurant $restaurant)
+    {
+        $restaurant = $restaurant->find($request->input('restaurant_id'));
+
+        try {
+            $restaurant->inventory()->sync($request->input('restaurant_inventory'));
+        } catch (\Exception $exception) {
+            return $this->errorMessageResponse('Error while syncing restaurant inventory to restaurant.', 500);
+        }
+
+        return $this->successDataResponse($restaurant->load(['categories', 'inventory']), 200);
     }
 }

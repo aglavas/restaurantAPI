@@ -16,7 +16,7 @@ class RestaurantUploadAvatarRequest extends FoundationRequest
     {
         $user = Auth::user();
 
-        if(!$user->can('upload-avatar-restaurant')) {
+        if((!$user->can('uploadAvatar', $this->all()['restaurant'])) || (!$user->can('upload-avatar-restaurant'))) {
             return false;
         }
 

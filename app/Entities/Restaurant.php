@@ -79,6 +79,26 @@ class Restaurant extends Model
     }
 
     /**
+     * Restaurant category belongs to many restaurants
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function categories()
+    {
+        return $this->belongsToMany(RestaurantCategory::class, 'restaurant_category_pivot' ,'restaurant_id', 'category_id');
+    }
+
+    /**
+     * Restaurant inventory category belongs to many restaurants
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function inventory()
+    {
+        return $this->belongsToMany(RestaurantInventoryCategory::class, 'restaurant_category_inventory_pivot' ,'restaurant_id', 'inventory_id');
+    }
+
+    /**
      * Deletes morphed relation
      *
      * @return bool|null

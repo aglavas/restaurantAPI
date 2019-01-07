@@ -2,6 +2,7 @@
 
 namespace App\Validators;
 
+use App\Entities\Restaurant;
 use App\Models\Meal\Meal;
 use App\Models\Pivot\BmiPhysiquePlanModel;
 use Illuminate\Http\Request;
@@ -131,5 +132,59 @@ class CustomValidator
 
         return $message;
     }
+
+
+    /**
+     * Check if there is category for that inventory category
+     *
+     * @param $message
+     * @param $attribute
+     * @param $rule
+     * @param $parameters
+     * @return bool
+     */
+    public function AllowedInventory($message, $attribute, $rule, $parameters)
+    {
+        /** @var Restaurant $restaurant */
+        $restaurant =  Restaurant::find($rule[0]);
+
+        if(!$restaurant) {
+            return false;
+        }
+
+        $categoryIdsCollection = $restaurant->categories()->pluck('restaurant_categories.id');
+
+        $categoryIds = $categoryIdsCollection->toArray();
+        $data = $parameters->getData();
+
+        $inventoryCount1 = count($data['restaurant_inventory']);
+
+        $inventoryCount2 = DB::table('restaurant_inventory_pivot')->whereIn('restaurant_category_id', $categoryIds)->whereIn('restaurant_inventory_id', $data['restaurant_inventory'])->count();
+
+
+        if($inventoryCount1 == $inventoryCount2) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     *
+     * Replacer for custom message
+     *
+     * @param $message
+     * @param $attribute
+     * @param $rule
+     * @param $parameters
+     * @return string
+     */
+    public function AllowedInventoryReplacer($message, $attribute, $rule, $parameters)
+    {
+        $message = "Inventory category does is not fit for that restaurant.";
+
+        return $message;
+    }
+
 
 }

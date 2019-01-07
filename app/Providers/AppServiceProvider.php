@@ -25,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
 
         Validator::extend('existsWith', 'App\Validators\CustomValidator@existsWith');
         Validator::replacer('existsWith', 'App\Validators\CustomValidator@existsWithReplacer');
+
+        Validator::extend('allowedInventory', 'App\Validators\CustomValidator@AllowedInventory');
+        Validator::replacer('allowedInventory', 'App\Validators\CustomValidator@AllowedInventoryReplacer');
     }
 
     /**

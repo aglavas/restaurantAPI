@@ -26,6 +26,8 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => 'upload-avatar-restaurant']);
         Permission::create(['name' => 'upload-image-restaurant']);
         Permission::create(['name' => 'destroy-image-restaurant']);
+        Permission::create(['name' => 'attach-restaurant-category-to-restaurant']);
+        Permission::create(['name' => 'sync-restaurant-category-to-restaurant']);
         Permission::create(['name' => 'get-menu-restaurant']);
 
         Permission::create(['name' => 'create-food']);
@@ -84,6 +86,8 @@ class RolesAndPermissionsSeeder extends Seeder
             'upload-avatar-restaurant',
             'upload-image-restaurant',
             'destroy-image-restaurant',
+            'attach-restaurant-category',
+            'sync-restaurant-category',
             'get-menu-restaurant',
             'create-food',
             'update-food',

@@ -29,13 +29,17 @@ Route::group(['middleware' => 'auth:api'], function(){
     // Restaurant
     Route::post('user/restaurant', 'User\RestaurantController@store');
     Route::delete('user/restaurant/{restaurant}', 'User\RestaurantController@destroy');
-    Route::post('user/restaurant/avatar', 'User\RestaurantController@uploadAvatar');
-    Route::put('user/restaurant/{restaurant}', 'User\RestaurantController@update');
+    Route::post('user/restaurant/{restaurant}/avatar', 'User\RestaurantController@uploadAvatar');
+    Route::put('user/restaurant/{restaurant}', 'User\RestaurantController@update')->where('restaurant', '[0-9]+');
     Route::get('user/restaurant/{restaurant}', 'User\RestaurantController@show');
     Route::get('user/restaurant', 'User\RestaurantController@list');
     Route::get('user/restaurant/{restaurant}/menu', 'User\RestaurantController@getMenu');
     Route::post('user/restaurant/{restaurant}/image', 'User\RestaurantController@postImage');
     Route::delete('user/restaurant/{restaurant}/image', 'User\RestaurantController@destroyImage');
+    Route::post('user/restaurant/categories', 'User\RestaurantController@attachCategories');
+    Route::put('user/restaurant/categories', 'User\RestaurantController@syncCategories');
+    Route::post('user/restaurant/inventory', 'User\RestaurantController@attachInventory');
+    Route::put('user/restaurant/inventory', 'User\RestaurantController@syncInventory');
 
 
     // Winery
