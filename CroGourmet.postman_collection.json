@@ -1,0 +1,2359 @@
+{
+	"info": {
+		"_postman_id": "35269548-7644-4876-b97b-f8fe1af747aa",
+		"name": "CroGourmet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "crogourmet/api/login?username=admin&password=pass",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "admin@admin.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pass",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/login?",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "restordan1a12ssass@mail.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "restordan1a12ssass@mail.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/user/restaurant/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImZjNTkyYzgxMmZlMjBlMTJkZjhlZGVkMGU5Yzk2MWE1NzU5MWMxZjMwM2JjYmE2ZGM0YzdjMDI1N2EzOTc4ZDUyYTdiY2FhMjkzZWRlMTVmIn0.eyJhdWQiOiIxIiwianRpIjoiZmM1OTJjODEyZmUyMGUxMmRmOGVkZWQwZTljOTYxYTU3NTkxYzFmMzAzYmNiYTZkYzRjN2MwMjU3YTM5NzhkNTJhN2JjYWEyOTNlZGUxNWYiLCJpYXQiOjE1NDYyNjc2NjMsIm5iZiI6MTU0NjI2NzY2MywiZXhwIjoxNTc3ODAzNjYzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.lVSeuE5SZr7JvJc_0wNU4eIUakCoqbIsLt43fru-xPzPEwUwNcCjjO1edUwEJWpGF1cq0RCNE6FXNqpY9cuUszKkc6wETRfKKv69XOUT2_UKt6-uFbqXpdEi0TacTWcLeARqmzo2-08HshqzQZifwvheTX3oVilxqZSiOW-xdc2Z5FujMaafhNTzIaeuRIMZCdLzyv2FBGl0eyyPuk3C6DgPT4pBAbB2a4X4ezDm8ToHV87dIEYzq2W-qeWdHrZdqBytOlrKNVuL3C-kJI1dGwGMY6gNohcvfrL7uYF0dSIegpz9J_iXr_mmvdIbem4yAJlhIoRgA_k8eBOlzoP-8IaOGKC4Kia0aWGX-DKZA6YeHCs5nfWZ5mKl1_gAfugl_LnbIBh_EYBMSlpCoiFHC6ZkIDRebhFFqizwadqmu8-xDC9i3Y8EteZVzKgwJE4uVwOaXJwQ1urhnuM-Y_FUyw_Q6udgH0ZqNYWZm6BroUMbIoS75Gu0p_VufVjrylrLRQyUQGF72no2WE8fpz5IuZdrIO0mQ4XmsN8GyDvpsmzEGRmopS1dhWuqh_sLfupMmTNz_p-Y1Hw5tdPM2CpHPDdEm-3aYBNkyXU5GfYQXCPP15C2jRW5JafBIyU50EM0c53Qk0jJEw98Pl1UCmDPybKhV-lJcNmmi62u9UdqNl8",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "restoran 12",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "restoran3@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pass",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "pass",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "fdsfdsf",
+							"type": "text"
+						},
+						{
+							"key": "open_hours",
+							"value": "1-2",
+							"type": "text"
+						},
+						{
+							"key": "translation[hr][description]",
+							"value": "gfdgfdsgdf",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "delivery",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "delivery_price",
+							"value": "fgdsgfdg45334",
+							"type": "text"
+						},
+						{
+							"key": "lat",
+							"value": "2.5",
+							"type": "text"
+						},
+						{
+							"key": "long",
+							"value": "5.3",
+							"type": "text"
+						},
+						{
+							"key": "lol",
+							"value": "fcdsfds",
+							"type": "text"
+						},
+						{
+							"key": "translation[en][description]",
+							"value": "fdsfdsfds",
+							"type": "text"
+						},
+						{
+							"key": "translation[hr][description]",
+							"value": "gfdgfdsgdf",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/user/restaurant",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"user",
+						"restaurant"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "restoran 1",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "restoran112s@mail.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "pass",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "fdsfdsf",
+							"disabled": true
+						},
+						{
+							"key": "open_hours",
+							"value": "1-2",
+							"disabled": true
+						},
+						{
+							"key": "password_confirmation",
+							"value": "pass",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "gfdgfdsgdf",
+							"disabled": true
+						},
+						{
+							"key": "delivery",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "delivery_price",
+							"value": "fgdsgfdg45334",
+							"disabled": true
+						},
+						{
+							"key": "lat",
+							"value": "2.3",
+							"disabled": true
+						},
+						{
+							"key": "long",
+							"value": "3.5",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/user/restaurant/8",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6Ijc4MTVjZmMwMTIwNDg3ODU2NmQ0NzBhY2MxZmNhMzM2YjMxMmRjMWE2ZTBjNTlkYjZkNjdjYmE1OTlhOTlmNGQ5ZWQ1NjQwNmI0ZThiN2M3In0.eyJhdWQiOiIxIiwianRpIjoiNzgxNWNmYzAxMjA0ODc4NTY2ZDQ3MGFjYzFmY2EzMzZiMzEyZGMxYTZlMGM1OWRiNmQ2N2NiYTU5OWE5OWY0ZDllZDU2NDA2YjRlOGI3YzciLCJpYXQiOjE1NDQ2Mjc0MjEsIm5iZiI6MTU0NDYyNzQyMSwiZXhwIjoxNTc2MTYzNDIxLCJzdWIiOiIxNCIsInNjb3BlcyI6W119.d7MNFc5L2qUfu_A49Hg6ZUE2FWawsNb9sGCPfEHIejoxQ8uKhxFLE_LS5EUebnh7Em1r52c5aZM73PyPHkyHDBpEFJnZkVTZtpVCxtNPMOw8Uaknyw5rFL6zoFhSWS9pS2y9F44YZ6mescxJo-748cfQCqih05WX64kC2W6SIO50anqVTYLdld_Mcfj9d2YOqRsacIhn4V9h87s9RRlEEM3kI0PVzW2GLPPVAi0I7x7p5NaxkxsZo2zAYS1id_7bDao9lFvR5wZORMosgxY5vEUvu0tcPXuNxTwz3Xttc9z0uW_ZAi-zKUwGZGoc16zjxR3ub7uahmPwG-a84uHSFqI7H4mXjk8XhuiSzeehT8a5rg_cIC9hPetKn4NkwW1hOb-bFR9golD7f-jhNPaweDcZA6D2mMu-yOQwx9rNYg7-dsNiGB4ZXvy3KL2tLTrKv6brxpAZeHmQ-Ufi9wrSpCKFsDS6NmqjDmHqbiQ5GrboDgUKzeuAU-O3rPZKRg5B2zdSHBNDHWsQCPKeQQ-T53f6QTdojY7EcbQ56RAbzBJKhVbrKF_M6IUJqKAyRuRJ3H3E36OeYZ230N2ZZ4nTkutG9np-BwuYjHBreD5Ox_SsqyreSjzaCWV1PRVbHfibzCMCBammJVcic9w-fNh8OGtG16tat_KM9uTDZaG_ex0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/user/winery/2",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"user",
+						"winery",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/me",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImNlMGZjYjE3MGNjMzRiNGEyMDNlMjVmNzk4ZmYyMzI1MDE1M2U0NDIxM2Y5OTFlMGQ4MTNkZWRkODg1YTI3ZmQ2NWJlMjVjNjlhYjk4NjY4In0.eyJhdWQiOiIxIiwianRpIjoiY2UwZmNiMTcwY2MzNGI0YTIwM2UyNWY3OThmZjIzMjUwMTUzZTQ0MjEzZjk5MWUwZDgxM2RlZGQ4ODVhMjdmZDY1YmUyNWM2OWFiOTg2NjgiLCJpYXQiOjE1NDY3Nzc3NzgsIm5iZiI6MTU0Njc3Nzc3OCwiZXhwIjoxNTc4MzEzNzc4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Z8MdHC6VTqlRt0x9Ig3uWEf-LTgTgYxM8kdfKPBSz2FUQcbce5JQ8x8LiL158dCPh4vUQ2hI8nB_kKZ5hVatoz5Bwxb7V4thNwAhV1ALk8Ucmjy2Ldr3ImWEMwLSr3F5G7ux8tUDjhRkiLbwUsk0KTuDnprsBuqxxp6CPlZVpAF5bha-DLZKnJ2g_aHdw3JY_aXG3quU9dvpQ2CGzFdPyDi3uuQk3LxDa7eW8skyZG48Yba9NETEhlyvvlCVIjOzoySUeijUtqN9m5d8vouay2OsoRlHTg9VyVcdnSxUH0vbbfDiOCjPOCK1Hsv9FOAIVdu6lFrC2lTOmhjq4DQnm7p-my_9gMGYOAGLTCwa37FGA6R1-H0tAHcM388j3Q-r9AVtuyrOgBJYQWmneonKz7KPrmHGofb1CQVmx4QYjqHq8brM-PGvIceZZtKlDXW2c0syi8d5_CpHz81LkUlhct4-6nPtTEZx3IB_28BxFKN2vNMphfJtUp-UJ-e5CvqiGSYAgIUXrs_km3ykeGsPoHFXj_hIgiCGyebeOt_rwXioZMmGLFEdCyne5TJk1Nb8qNPcbb3W32Ry9o17fissk3qrR1DP55hiS8CDuX54FVDH7AE_RYVkgOIOeCrZq83cvTLXJarQZG_I6jCOCCDI3NwRVPLGiOk7Bhgz9qiLwOw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/me",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImNiMGViMTAxYWQxZjZmMmZlNGNkNGMzNzE0NmY2OThlNjgwYWI2ODM2OWU5OWViN2E5MmJiNWE4NTRmOWI0NjA2MDQxMzQ1MTA4YjcyMWU1In0.eyJhdWQiOiIxIiwianRpIjoiY2IwZWIxMDFhZDFmNmYyZmU0Y2Q0YzM3MTQ2ZjY5OGU2ODBhYjY4MzY5ZTk5ZWI3YTkyYmI1YTg1NGY5YjQ2MDYwNDEzNDUxMDhiNzIxZTUiLCJpYXQiOjE1NDY2ODU4NzAsIm5iZiI6MTU0NjY4NTg3MCwiZXhwIjoxNTc4MjIxODY5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.fTQNg5RyCyTbaJtWHaPmMTo89sLvv7DaIaCo5MxGjfXiGzWADh47mMQBJe4wJDCEhv7F6pZ1kGEGAJhgrh2wCTK47hoohqvsT81uaPGHPAYBB297JVTs3jlrDiU-E6_diUInKEl0KvH8pqAAq-8i2-xL1mKU0pIM5xxfMqdt4jMDki1Nrem2Uz2ukORn-IFKm8QaqZc8KFd8n1bH0hmnoQyhyK0Q9QczxcjAReAeWA7fx8uY7gDu4QErZBWCZWYYlF_ZGLagmI80Jr7b_-jK5GyLQ1_5LSX0WCdtaRd5Eks-BCc_MysjiKwxClJYQdDzEDK0MPMW5vDvmKYbopMYlU8v_l7y5G9SU80yMT-Iv13tbTRuJTm5ijpKCM9CgmwIrUDZ5NjR-G_iONb5ZErZVLP_03KcR9snDbJftjxEk31irt0OYBtOtv4QjdDLIv00_YN4pkwK77cE_BGwGZ3R6ppuSMIAtvKdycwbHoFFl244IHJg7jX3EASyLzvfS-vv4i5WTrX3BnuAvSsmpCHrJofDPkQBd33SIcC2c1jYYqPEiGmnUgB3edqtkcT7jrBOm9SRHmyJVZzvll646UPkBP57X5p-SQA2F6mmFsaR_M0derZxnsRWoE2BOsXp7CVZMeskoWaAlYS_6ygrBiRELbYKx6JzE0TJkLyq9JWl28Q",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/user/list?type=restaurant",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"user",
+						"list"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "restaurant"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/user/restaurant/9",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "novoime",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "nova adresa",
+							"type": "text"
+						},
+						{
+							"key": "open_hours",
+							"value": "novi sati",
+							"type": "text"
+						},
+						{
+							"key": "translation[en][description]",
+							"value": "engleski restoran",
+							"type": "text"
+						},
+						{
+							"key": "translation[de][description]",
+							"value": "njemacki restoran",
+							"type": "text"
+						},
+						{
+							"key": "delivery",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "delivery_price",
+							"value": "-",
+							"type": "text"
+						},
+						{
+							"key": "lat",
+							"value": "111",
+							"type": "text"
+						},
+						{
+							"key": "long",
+							"value": "222",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/user/restaurant/9",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"user",
+						"restaurant",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/user/restaurant/9",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/user/restaurant/9",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"user",
+						"restaurant",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/user/restaurant",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjA1YmM1YWU2ZmZiNTMyNTc2YTVlMjYzNTY5MjE5NWIwYWY0YmQ4YmEwOGI4ZmM5ZDY2NGYxZTI1ZDIwYjJiZTgwODBmMTExZGU3MTU5NWM0In0.eyJhdWQiOiIxIiwianRpIjoiMDViYzVhZTZmZmI1MzI1NzZhNWUyNjM1NjkyMTk1YjBhZjRiZDhiYTA4YjhmYzlkNjY0ZjFlMjVkMjBiMmJlODA4MGYxMTFkZTcxNTk1YzQiLCJpYXQiOjE1NDY4ODkwMjMsIm5iZiI6MTU0Njg4OTAyMywiZXhwIjoxNTc4NDI1MDIzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.fv6QFyS_noj_0rQ7uFrX56E1dN_NaG9PEJqq7G-ooSmdkxRKbyVyLIEPx49OtLgCUKUtrmT_NZNGTL3cV45Lf3-6yKCIEhCYO1tuxTOvdO0n7Y3MqiZxU8TDnQNFAdEDIDnl4hRErF6AWWqYXi6M5nuRibN-SM_6jEzyMerQtRQskZBSzVOuPHwAGx4HoUNu2WQTzbwWxpPdBMpfexM2PqJCeyWdPM8nMv84Qh292rVeWngo7jgMuDcctW1eZZoQI3e7C3EM_YZ8ulmW8qUQU1SDtK6nBdE9Pyb6u9piWNci6F-blA667Nr4aFoSCjn_DC9jppQbhTEJuGyI-nciXtN_cheSlmgQKr2tKRLRfLZggwg9l8fpY5_waIltyOQumq-GaZDue8ss9NnrjDARYNABmuHQv8kUT6zDLkGUGuxHxFmVlqXtAxkdJ6k0F2SHequ3C2yx_-yVHwa_hA2Az5B2cOIJrRtya_9jcD2suh44FwkiC2ZOQxOyymdq07wFu7-9U4UR_GxuOw9MqXms0VJjMgLDWhW3wmFtdm06jyIcy7fKsQPfyyeoUXDEIX00jRv-Ud3-FvsQ3fAGLhnPtnq0bouvRtqgB-pfzRQNMDqsj4wIzZtThXYVfxCrRnDkRzV8JUe66xL1SBcw38hJ0o2EFMdnmU2wQAVphg1CH-o",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/user/restaurant",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"user",
+						"restaurant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/user/restaurant/avatar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6Ijc0ODAyYzFhMWVhNzk4NDcwNTBhYWM1ZDVmMDFmOGNiMDBjMTJhMGM2NWFjNzU4OWNiYjg0OTY5OWExNzdmNmUzNGQwYTk5MDJkOWRiMDkwIn0.eyJhdWQiOiIxIiwianRpIjoiNzQ4MDJjMWExZWE3OTg0NzA1MGFhYzVkNWYwMWY4Y2IwMGMxMmEwYzY1YWM3NTg5Y2JiODQ5Njk5YTE3N2Y2ZTM0ZDBhOTkwMmQ5ZGIwOTAiLCJpYXQiOjE1NDY3ODUyMjksIm5iZiI6MTU0Njc4NTIyOSwiZXhwIjoxNTc4MzIxMjI5LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.AKeR5ZLSHGVFUj0aZNVweYaosl6qz5aCjU2z90yZgznlPZyVeqlzQCFjOjEzsugHhRHbUPElGCL7j3N0G2_rYFPzVFybJ5xUE2vFUGPhliGadc-qEBqCqsY3iootpYr5bf-bjH-agyd2P2g2KadQ5U8v9kgrPZFnekNH3xqQtuEz3dDG0zue0i7FJ3vs1C3d0YWhrdTMGW8u9aAxfzBIXzO-c-VICexqJW_UdJbZcCqDJD0dPiUphsy3cMF12ANX9_XWwaDsanUb7FgHrK83R8-GD8Fw4dlFyec6KO4I3ey7DowUyOkwnSR3WrpwCCJrPmwxx2DTmfC9v_1yP6F5QLzU0z05dJNpLPUAZeiWGPmB88PA60zp7nD5VBrfMUNszYd7OxXYyagYJ0R7Dux2Gx2Pb8-JJ4EKFOuHktzy5MSdxjTpwKAUJiiT3K61WIj4d58Z__pVWmVJ3Hjqg8NPB59L5fLTA7_qs_-hsUKb3J226n88wWtQRMPV_vipy6l4E0zoGqwEwacMcqfc8vh8_9XDGsrRV5lL9Ci7LatGNuJD2eo72_1j9mHvRouXeOcG2NIFq8BRNcOuQslIzUdnhLczOE_OSslUQrKanjfw4q_9E0Lc0e3XkgHan_W5cbLXUs3SP6PXCuU3zPSvw9L9VV9-I99cp-CN6h1xpn7Es9A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": ""
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/user/restaurant/1/avatar",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"user",
+						"restaurant",
+						"1",
+						"avatar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/user/winery",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "winary",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "winatssffy@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pass",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "pass",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "adresa1",
+							"type": "text"
+						},
+						{
+							"key": "open_hours",
+							"value": "fdsfd",
+							"type": "text"
+						},
+						{
+							"key": "translation[en][description]",
+							"value": "fgfdg",
+							"type": "text"
+						},
+						{
+							"key": "lat",
+							"value": "2.5",
+							"type": "text"
+						},
+						{
+							"key": "long",
+							"value": "43",
+							"type": "text"
+						},
+						{
+							"key": "translation[hr][description]",
+							"value": "gfdgfd",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/user/winery",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"user",
+						"winery"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/user/winery/2",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6Ijc4MTVjZmMwMTIwNDg3ODU2NmQ0NzBhY2MxZmNhMzM2YjMxMmRjMWE2ZTBjNTlkYjZkNjdjYmE1OTlhOTlmNGQ5ZWQ1NjQwNmI0ZThiN2M3In0.eyJhdWQiOiIxIiwianRpIjoiNzgxNWNmYzAxMjA0ODc4NTY2ZDQ3MGFjYzFmY2EzMzZiMzEyZGMxYTZlMGM1OWRiNmQ2N2NiYTU5OWE5OWY0ZDllZDU2NDA2YjRlOGI3YzciLCJpYXQiOjE1NDQ2Mjc0MjEsIm5iZiI6MTU0NDYyNzQyMSwiZXhwIjoxNTc2MTYzNDIxLCJzdWIiOiIxNCIsInNjb3BlcyI6W119.d7MNFc5L2qUfu_A49Hg6ZUE2FWawsNb9sGCPfEHIejoxQ8uKhxFLE_LS5EUebnh7Em1r52c5aZM73PyPHkyHDBpEFJnZkVTZtpVCxtNPMOw8Uaknyw5rFL6zoFhSWS9pS2y9F44YZ6mescxJo-748cfQCqih05WX64kC2W6SIO50anqVTYLdld_Mcfj9d2YOqRsacIhn4V9h87s9RRlEEM3kI0PVzW2GLPPVAi0I7x7p5NaxkxsZo2zAYS1id_7bDao9lFvR5wZORMosgxY5vEUvu0tcPXuNxTwz3Xttc9z0uW_ZAi-zKUwGZGoc16zjxR3ub7uahmPwG-a84uHSFqI7H4mXjk8XhuiSzeehT8a5rg_cIC9hPetKn4NkwW1hOb-bFR9golD7f-jhNPaweDcZA6D2mMu-yOQwx9rNYg7-dsNiGB4ZXvy3KL2tLTrKv6brxpAZeHmQ-Ufi9wrSpCKFsDS6NmqjDmHqbiQ5GrboDgUKzeuAU-O3rPZKRg5B2zdSHBNDHWsQCPKeQQ-T53f6QTdojY7EcbQ56RAbzBJKhVbrKF_M6IUJqKAyRuRJ3H3E36OeYZ230N2ZZ4nTkutG9np-BwuYjHBreD5Ox_SsqyreSjzaCWV1PRVbHfibzCMCBammJVcic9w-fNh8OGtG16tat_KM9uTDZaG_ex0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/user/winery/2",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"user",
+						"winery",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/user/winery/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/user/winery/1",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"user",
+						"winery",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/user/winery",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/user/winery",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"user",
+						"winery"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/user/winery/3",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "vinarija",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "adras",
+							"type": "text"
+						},
+						{
+							"key": "open_hours",
+							"value": "0-24",
+							"type": "text"
+						},
+						{
+							"key": "translation[en][description]",
+							"value": "engleska vinarija",
+							"type": "text"
+						},
+						{
+							"key": "translation[de][description]",
+							"value": "njemacka vinarija",
+							"type": "text"
+						},
+						{
+							"key": "lat",
+							"value": "111",
+							"type": "text"
+						},
+						{
+							"key": "long",
+							"value": "222",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/user/winery/3",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"user",
+						"winery",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/ingredient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "translation[hr][name]",
+							"value": "salama",
+							"type": "text"
+						},
+						{
+							"key": "translation[en][name]",
+							"value": "salami",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/ingredient",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"ingredient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/ingredient",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/ingredient",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"ingredient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/ingredient/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/ingredient/2",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"ingredient",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/ingredient/2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/ingredient/2",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"ingredient",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/ingredient/3",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "translation[hr][name]",
+							"value": "5555sfdf",
+							"type": "text"
+						},
+						{
+							"key": "translation[en][name]",
+							"value": "66666fdsfdsf",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/ingredient/3",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"ingredient",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/food",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjNiYjdlNTZjYzdjM2RhYzQ5MWI0NjhkMDU4NjUyYjBlY2MzMDMyMWEwZmYxMWI5MmQ4Y2E3ZDhiY2UxODNjZmUyNjI5YTZiNWJmNTgyNzQxIn0.eyJhdWQiOiIxIiwianRpIjoiM2JiN2U1NmNjN2MzZGFjNDkxYjQ2OGQwNTg2NTJiMGVjYzMwMzIxYTBmZjExYjkyZDhjYTdkOGJjZTE4M2NmZTI2MjlhNmI1YmY1ODI3NDEiLCJpYXQiOjE1NDY2ODkxOTQsIm5iZiI6MTU0NjY4OTE5NCwiZXhwIjoxNTc4MjI1MTk0LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.bsuV064uV79Hg1bcWlmyBzHWnHxEc0j4nWwvHSqC4DaWWDdqWO_MAkGz2nQByVB2mL-H-6DgiK0I_EsZoVCp4vGSsXtgnEboxnKKQYYTcLqA18sqJMGCi-fL20v7ebcZf11CNUQu9YsGbD08FxLulg3JFlvo5oKFmVQXzdex_66NwG1FkzWBU4Xl7mZzHWVggwraN9GhB9c0dAKUDuOirg5FRsXb8JiI3kQClCHHL337e2Y6CI_j4PIDnG00_SVIxBv74oGbxD0kCPbgfPuECDZryAgRUfpPRt1LAwyKrlIbYXf3N7VwzRlo05G4yDQr6VL1AQxF7CGvlbGHK92m5C6V0iCKLltVqcgRJ7eU_GACL-xcX-l6AqpGJyVpBzasynRTrJLLmV4cymPvC4h0UR3Ah-28yAdPlPmnbPm6EO9ovbt7bS9XlUqu8Daric0CIETDNG4z1DSBEAu_jEK7ZPOYrQ4YQy79M0-la4KKDOuJjaRx_F7sEERT1mqic0LKIqzROvxrqNsgmdtc6nzl4tzuSc5arzH8HU_ZJN59ybLZFSP2cRWOyZ1HEOMQk7A4-DlWrploqlfjrn0YvcbXpjJ4iouA_a9j4LaF-JPj4EYOinb6gRCMGEm5Bgg8K9DCVFn7xMDrQ8JDQK5lK-_bkcnjkkphgsIvsC67MUF5Gt4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "restaurant_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "222",
+							"type": "text"
+						},
+						{
+							"key": "calories",
+							"value": "434",
+							"type": "text"
+						},
+						{
+							"key": "translation[hr][name]",
+							"value": "batak fdsfsd",
+							"type": "text"
+						},
+						{
+							"key": "translation[en][name]",
+							"value": "batak en",
+							"type": "text"
+						},
+						{
+							"key": "ingredients[]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "ingredients[]",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "ingredients[]",
+							"value": "3",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "translation[hr][description]",
+							"value": "opis HR",
+							"type": "text"
+						},
+						{
+							"key": "translation[en][description]",
+							"value": "opis EN",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/food",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"food"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/food/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/food/1",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"food",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/food",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjNiYjdlNTZjYzdjM2RhYzQ5MWI0NjhkMDU4NjUyYjBlY2MzMDMyMWEwZmYxMWI5MmQ4Y2E3ZDhiY2UxODNjZmUyNjI5YTZiNWJmNTgyNzQxIn0.eyJhdWQiOiIxIiwianRpIjoiM2JiN2U1NmNjN2MzZGFjNDkxYjQ2OGQwNTg2NTJiMGVjYzMwMzIxYTBmZjExYjkyZDhjYTdkOGJjZTE4M2NmZTI2MjlhNmI1YmY1ODI3NDEiLCJpYXQiOjE1NDY2ODkxOTQsIm5iZiI6MTU0NjY4OTE5NCwiZXhwIjoxNTc4MjI1MTk0LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.bsuV064uV79Hg1bcWlmyBzHWnHxEc0j4nWwvHSqC4DaWWDdqWO_MAkGz2nQByVB2mL-H-6DgiK0I_EsZoVCp4vGSsXtgnEboxnKKQYYTcLqA18sqJMGCi-fL20v7ebcZf11CNUQu9YsGbD08FxLulg3JFlvo5oKFmVQXzdex_66NwG1FkzWBU4Xl7mZzHWVggwraN9GhB9c0dAKUDuOirg5FRsXb8JiI3kQClCHHL337e2Y6CI_j4PIDnG00_SVIxBv74oGbxD0kCPbgfPuECDZryAgRUfpPRt1LAwyKrlIbYXf3N7VwzRlo05G4yDQr6VL1AQxF7CGvlbGHK92m5C6V0iCKLltVqcgRJ7eU_GACL-xcX-l6AqpGJyVpBzasynRTrJLLmV4cymPvC4h0UR3Ah-28yAdPlPmnbPm6EO9ovbt7bS9XlUqu8Daric0CIETDNG4z1DSBEAu_jEK7ZPOYrQ4YQy79M0-la4KKDOuJjaRx_F7sEERT1mqic0LKIqzROvxrqNsgmdtc6nzl4tzuSc5arzH8HU_ZJN59ybLZFSP2cRWOyZ1HEOMQk7A4-DlWrploqlfjrn0YvcbXpjJ4iouA_a9j4LaF-JPj4EYOinb6gRCMGEm5Bgg8K9DCVFn7xMDrQ8JDQK5lK-_bkcnjkkphgsIvsC67MUF5Gt4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "restaurant_id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/food?restaurant_id=1",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"food"
+					],
+					"query": [
+						{
+							"key": "restaurant_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/food/5",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjNiYjdlNTZjYzdjM2RhYzQ5MWI0NjhkMDU4NjUyYjBlY2MzMDMyMWEwZmYxMWI5MmQ4Y2E3ZDhiY2UxODNjZmUyNjI5YTZiNWJmNTgyNzQxIn0.eyJhdWQiOiIxIiwianRpIjoiM2JiN2U1NmNjN2MzZGFjNDkxYjQ2OGQwNTg2NTJiMGVjYzMwMzIxYTBmZjExYjkyZDhjYTdkOGJjZTE4M2NmZTI2MjlhNmI1YmY1ODI3NDEiLCJpYXQiOjE1NDY2ODkxOTQsIm5iZiI6MTU0NjY4OTE5NCwiZXhwIjoxNTc4MjI1MTk0LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.bsuV064uV79Hg1bcWlmyBzHWnHxEc0j4nWwvHSqC4DaWWDdqWO_MAkGz2nQByVB2mL-H-6DgiK0I_EsZoVCp4vGSsXtgnEboxnKKQYYTcLqA18sqJMGCi-fL20v7ebcZf11CNUQu9YsGbD08FxLulg3JFlvo5oKFmVQXzdex_66NwG1FkzWBU4Xl7mZzHWVggwraN9GhB9c0dAKUDuOirg5FRsXb8JiI3kQClCHHL337e2Y6CI_j4PIDnG00_SVIxBv74oGbxD0kCPbgfPuECDZryAgRUfpPRt1LAwyKrlIbYXf3N7VwzRlo05G4yDQr6VL1AQxF7CGvlbGHK92m5C6V0iCKLltVqcgRJ7eU_GACL-xcX-l6AqpGJyVpBzasynRTrJLLmV4cymPvC4h0UR3Ah-28yAdPlPmnbPm6EO9ovbt7bS9XlUqu8Daric0CIETDNG4z1DSBEAu_jEK7ZPOYrQ4YQy79M0-la4KKDOuJjaRx_F7sEERT1mqic0LKIqzROvxrqNsgmdtc6nzl4tzuSc5arzH8HU_ZJN59ybLZFSP2cRWOyZ1HEOMQk7A4-DlWrploqlfjrn0YvcbXpjJ4iouA_a9j4LaF-JPj4EYOinb6gRCMGEm5Bgg8K9DCVFn7xMDrQ8JDQK5lK-_bkcnjkkphgsIvsC67MUF5Gt4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/food/5",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"food",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/food/5",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjNlMDUwNzkzYjMwZmNhZmQzNmEwYTExMDA3MDcwNzg4NDM4ZWY2NGMzYzg0N2MxZWNjNmY4YzhiYjA5OWM0YzFkNTMyY2I5NGJjMzE1Zjg5In0.eyJhdWQiOiIxIiwianRpIjoiM2UwNTA3OTNiMzBmY2FmZDM2YTBhMTEwMDcwNzA3ODg0MzhlZjY0YzNjODQ3YzFlY2M2ZjhjOGJiMDk5YzRjMWQ1MzJjYjk0YmMzMTVmODkiLCJpYXQiOjE1NDYyNjg1OTMsIm5iZiI6MTU0NjI2ODU5MywiZXhwIjoxNTc3ODA0NTkyLCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.H9CCOMeVLrP8XH41G5GGel8fVYm-BmTIxxM1WwaMIU4Q-OkziFfrBgPzc3v0-EGB9usgsVZ0cLV9gXbTfiG364aeqk6kXNjNvf-N9XVzqkDIxFzDqQzcqTYq7iA1sWOUjBHlMdBWcIJ-oqxZ9mnOUpdQGMShRZoZgRDP9UCasypTb5MD61BTz090jzj8uikseNRuOxgsiB0a6X6tugrV1KRUbWxHECSrleICC1pX20RVKn2iJO8_ZF79U7gdZUBEBmqJWQaYToIdjXyf1b76TDxrMv2_AB2XaI513JtPO3sNcFNay5rh4wxZ8v8ehgOD4b6eIBwQWnmKaJ_RgR-EOcHf51dE64hAcfqB2CPeks3NfSrbY_2Vqa3z8dGbGTRcUwqLm_rkNQ8ISqI5Sxb5oxbiqXmKLFLnGLqp7VbaIWazsysSgG7z414daSm2EE-rp-zsC-kZqhjqVkv3W6-9yvvqwdgAwT8FA3JLLCiARcAmCFNNjruyqbwEj3AAaagYzuG0fjEkArfvhVQle-WtblMwMb_gT5lzsxtS83Tqi5ZUY1GBh9--aHj3H1AMEyydl9tgMrRCSBj4eI7PC6U2GwDGl919Cq1QuHqoK5lAVrierTvwObf_LZWUCv0x-0x1Av5kyfOTGMuEOUPXCZq05ZMl68FNFdklMZph2ylH_J0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "2222",
+							"type": "text"
+						},
+						{
+							"key": "calories",
+							"value": "4444",
+							"type": "text"
+						},
+						{
+							"key": "translation[hr][name]",
+							"value": "bataknew23",
+							"type": "text"
+						},
+						{
+							"key": "translation[en][name]",
+							"value": "bataknew EN23",
+							"type": "text"
+						},
+						{
+							"key": "ingredients[]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "translation[hr][description]",
+							"value": "Opis hr new23",
+							"type": "text"
+						},
+						{
+							"key": "translation[en][description]",
+							"value": "Opis en new23",
+							"type": "text"
+						},
+						{
+							"key": "ingredients[]",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "category_id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/food/1",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"food",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/foodCategory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "translation[en][title]",
+							"value": "Pasta en1",
+							"type": "text"
+						},
+						{
+							"key": "translation[hr][title]",
+							"value": "Pasta hr1",
+							"type": "text"
+						},
+						{
+							"key": "translation[de][title]",
+							"value": "Pasta de1",
+							"type": "text"
+						},
+						{
+							"key": "restaurant_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/foodCategory",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"foodCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/foodCategory",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjUyNTNmOWY0ZmI5ZmRjNzEyN2MwMjM1ZTAwZTE3OTAzOWUwNTJiMmE2ODhkNDRjYTNlYzU2N2M0MzYxN2YzMGI0OGQ0ZGNhY2IzZDA3YjUzIn0.eyJhdWQiOiIxIiwianRpIjoiNTI1M2Y5ZjRmYjlmZGM3MTI3YzAyMzVlMDBlMTc5MDM5ZTA1MmIyYTY4OGQ0NGNhM2VjNTY3YzQzNjE3ZjMwYjQ4ZDRkY2FjYjNkMDdiNTMiLCJpYXQiOjE1NDY3MjY4OTIsIm5iZiI6MTU0NjcyNjg5MiwiZXhwIjoxNTc4MjYyODkyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.29eSsrHBv7BjYQdoql_Ltkb-v0lfUjr5k-NFOULB4pPnAAtG6SSzG6tyOmOXctHbJuEZGGVt1pbBiirqI-Xt60ibY9WvpyhCSvARyfUkaDR56DVLdxVxN7oeE4WYnAxk-RF4ZuMH04GzYCkC7-Ot0Auv7seuM27ZAJgIpDiFFIALY0CiR8yB_GMdqLkECJ_Kl00I0OkOpojOb0W3sBSDmVaFWTWfv2vP7v_oi3IhTF_5u78xxFF4XU1PueoTEYydjoTSC9bVFzUVFd-DPXfg_UlI6aj_XygbCopGtGxKW5sm--g0goqwlkTm70crDqsuP8GNmkkrREpZOFl9_aDPwPNeXaFTa7YWZgwPkv1k54J9-44_09p7mFbjOmxHKVK8qQb8pCTKGGLBznFHWSKnUg6zdIsP4DcbHGziqfoIx4gbR4BKv01B-G4zVBJnr-iMav3tKxUbppwEMwbESkFVpoanKvnZNNWqFhInw7dsGUqfLTA952Dm6XdaEOL0xZuT_nYspJYo9Y17Z8XjxKN_Jbz9BXZ9MCJtGy0OcNLY6qy62_qDjz_UOWA064L5hICpV6RJsvMXp25_clUv9azL6o4IZyuDcG7DqdlGmSX2PHJ7-xoZqhJcx4Q_dO7vGcfW_tEhCblv6ECzl3eg06AzMGcYJiDpQpLJD6mEtPBqvjM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/foodCategory?restaurant_id=3",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"foodCategory"
+					],
+					"query": [
+						{
+							"key": "restaurant_id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/foodCategory/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/foodCategory/2",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"foodCategory",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/foodCategory/2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/foodCategory/2",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"foodCategory",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/foodCategory/1",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "translation[hr][title]",
+							"value": "Prijevod hr 12",
+							"type": "text"
+						},
+						{
+							"key": "translation[en][title]",
+							"value": "Prijevod en 12",
+							"type": "text"
+						},
+						{
+							"key": "translation[de][title]",
+							"value": "Prijevod de 12",
+							"type": "text"
+						},
+						{
+							"key": "restaurant_id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/foodCategory/1",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"foodCategory",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/foodAddition",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjNiYjdlNTZjYzdjM2RhYzQ5MWI0NjhkMDU4NjUyYjBlY2MzMDMyMWEwZmYxMWI5MmQ4Y2E3ZDhiY2UxODNjZmUyNjI5YTZiNWJmNTgyNzQxIn0.eyJhdWQiOiIxIiwianRpIjoiM2JiN2U1NmNjN2MzZGFjNDkxYjQ2OGQwNTg2NTJiMGVjYzMwMzIxYTBmZjExYjkyZDhjYTdkOGJjZTE4M2NmZTI2MjlhNmI1YmY1ODI3NDEiLCJpYXQiOjE1NDY2ODkxOTQsIm5iZiI6MTU0NjY4OTE5NCwiZXhwIjoxNTc4MjI1MTk0LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.bsuV064uV79Hg1bcWlmyBzHWnHxEc0j4nWwvHSqC4DaWWDdqWO_MAkGz2nQByVB2mL-H-6DgiK0I_EsZoVCp4vGSsXtgnEboxnKKQYYTcLqA18sqJMGCi-fL20v7ebcZf11CNUQu9YsGbD08FxLulg3JFlvo5oKFmVQXzdex_66NwG1FkzWBU4Xl7mZzHWVggwraN9GhB9c0dAKUDuOirg5FRsXb8JiI3kQClCHHL337e2Y6CI_j4PIDnG00_SVIxBv74oGbxD0kCPbgfPuECDZryAgRUfpPRt1LAwyKrlIbYXf3N7VwzRlo05G4yDQr6VL1AQxF7CGvlbGHK92m5C6V0iCKLltVqcgRJ7eU_GACL-xcX-l6AqpGJyVpBzasynRTrJLLmV4cymPvC4h0UR3Ah-28yAdPlPmnbPm6EO9ovbt7bS9XlUqu8Daric0CIETDNG4z1DSBEAu_jEK7ZPOYrQ4YQy79M0-la4KKDOuJjaRx_F7sEERT1mqic0LKIqzROvxrqNsgmdtc6nzl4tzuSc5arzH8HU_ZJN59ybLZFSP2cRWOyZ1HEOMQk7A4-DlWrploqlfjrn0YvcbXpjJ4iouA_a9j4LaF-JPj4EYOinb6gRCMGEm5Bgg8K9DCVFn7xMDrQ8JDQK5lK-_bkcnjkkphgsIvsC67MUF5Gt4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "translation[en][title]",
+							"value": "Dodatak en2",
+							"type": "text"
+						},
+						{
+							"key": "translation[hr][title]",
+							"value": "Dodatak hr2",
+							"type": "text"
+						},
+						{
+							"key": "translation[de][title]",
+							"value": "Dodatak de2",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "3322",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/foodAddition",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"foodAddition"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/foodAddition",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjNiYjdlNTZjYzdjM2RhYzQ5MWI0NjhkMDU4NjUyYjBlY2MzMDMyMWEwZmYxMWI5MmQ4Y2E3ZDhiY2UxODNjZmUyNjI5YTZiNWJmNTgyNzQxIn0.eyJhdWQiOiIxIiwianRpIjoiM2JiN2U1NmNjN2MzZGFjNDkxYjQ2OGQwNTg2NTJiMGVjYzMwMzIxYTBmZjExYjkyZDhjYTdkOGJjZTE4M2NmZTI2MjlhNmI1YmY1ODI3NDEiLCJpYXQiOjE1NDY2ODkxOTQsIm5iZiI6MTU0NjY4OTE5NCwiZXhwIjoxNTc4MjI1MTk0LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.bsuV064uV79Hg1bcWlmyBzHWnHxEc0j4nWwvHSqC4DaWWDdqWO_MAkGz2nQByVB2mL-H-6DgiK0I_EsZoVCp4vGSsXtgnEboxnKKQYYTcLqA18sqJMGCi-fL20v7ebcZf11CNUQu9YsGbD08FxLulg3JFlvo5oKFmVQXzdex_66NwG1FkzWBU4Xl7mZzHWVggwraN9GhB9c0dAKUDuOirg5FRsXb8JiI3kQClCHHL337e2Y6CI_j4PIDnG00_SVIxBv74oGbxD0kCPbgfPuECDZryAgRUfpPRt1LAwyKrlIbYXf3N7VwzRlo05G4yDQr6VL1AQxF7CGvlbGHK92m5C6V0iCKLltVqcgRJ7eU_GACL-xcX-l6AqpGJyVpBzasynRTrJLLmV4cymPvC4h0UR3Ah-28yAdPlPmnbPm6EO9ovbt7bS9XlUqu8Daric0CIETDNG4z1DSBEAu_jEK7ZPOYrQ4YQy79M0-la4KKDOuJjaRx_F7sEERT1mqic0LKIqzROvxrqNsgmdtc6nzl4tzuSc5arzH8HU_ZJN59ybLZFSP2cRWOyZ1HEOMQk7A4-DlWrploqlfjrn0YvcbXpjJ4iouA_a9j4LaF-JPj4EYOinb6gRCMGEm5Bgg8K9DCVFn7xMDrQ8JDQK5lK-_bkcnjkkphgsIvsC67MUF5Gt4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/foodAddition?restaurant_id=1",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"foodAddition"
+					],
+					"query": [
+						{
+							"key": "restaurant_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/foodAddition/3",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjNiYjdlNTZjYzdjM2RhYzQ5MWI0NjhkMDU4NjUyYjBlY2MzMDMyMWEwZmYxMWI5MmQ4Y2E3ZDhiY2UxODNjZmUyNjI5YTZiNWJmNTgyNzQxIn0.eyJhdWQiOiIxIiwianRpIjoiM2JiN2U1NmNjN2MzZGFjNDkxYjQ2OGQwNTg2NTJiMGVjYzMwMzIxYTBmZjExYjkyZDhjYTdkOGJjZTE4M2NmZTI2MjlhNmI1YmY1ODI3NDEiLCJpYXQiOjE1NDY2ODkxOTQsIm5iZiI6MTU0NjY4OTE5NCwiZXhwIjoxNTc4MjI1MTk0LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.bsuV064uV79Hg1bcWlmyBzHWnHxEc0j4nWwvHSqC4DaWWDdqWO_MAkGz2nQByVB2mL-H-6DgiK0I_EsZoVCp4vGSsXtgnEboxnKKQYYTcLqA18sqJMGCi-fL20v7ebcZf11CNUQu9YsGbD08FxLulg3JFlvo5oKFmVQXzdex_66NwG1FkzWBU4Xl7mZzHWVggwraN9GhB9c0dAKUDuOirg5FRsXb8JiI3kQClCHHL337e2Y6CI_j4PIDnG00_SVIxBv74oGbxD0kCPbgfPuECDZryAgRUfpPRt1LAwyKrlIbYXf3N7VwzRlo05G4yDQr6VL1AQxF7CGvlbGHK92m5C6V0iCKLltVqcgRJ7eU_GACL-xcX-l6AqpGJyVpBzasynRTrJLLmV4cymPvC4h0UR3Ah-28yAdPlPmnbPm6EO9ovbt7bS9XlUqu8Daric0CIETDNG4z1DSBEAu_jEK7ZPOYrQ4YQy79M0-la4KKDOuJjaRx_F7sEERT1mqic0LKIqzROvxrqNsgmdtc6nzl4tzuSc5arzH8HU_ZJN59ybLZFSP2cRWOyZ1HEOMQk7A4-DlWrploqlfjrn0YvcbXpjJ4iouA_a9j4LaF-JPj4EYOinb6gRCMGEm5Bgg8K9DCVFn7xMDrQ8JDQK5lK-_bkcnjkkphgsIvsC67MUF5Gt4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/foodAddition/2",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"foodAddition",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/foodAddition/3",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/foodAddition/3",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"foodAddition",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/foodAddition/2",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"name": "Content-Type",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjNiYjdlNTZjYzdjM2RhYzQ5MWI0NjhkMDU4NjUyYjBlY2MzMDMyMWEwZmYxMWI5MmQ4Y2E3ZDhiY2UxODNjZmUyNjI5YTZiNWJmNTgyNzQxIn0.eyJhdWQiOiIxIiwianRpIjoiM2JiN2U1NmNjN2MzZGFjNDkxYjQ2OGQwNTg2NTJiMGVjYzMwMzIxYTBmZjExYjkyZDhjYTdkOGJjZTE4M2NmZTI2MjlhNmI1YmY1ODI3NDEiLCJpYXQiOjE1NDY2ODkxOTQsIm5iZiI6MTU0NjY4OTE5NCwiZXhwIjoxNTc4MjI1MTk0LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.bsuV064uV79Hg1bcWlmyBzHWnHxEc0j4nWwvHSqC4DaWWDdqWO_MAkGz2nQByVB2mL-H-6DgiK0I_EsZoVCp4vGSsXtgnEboxnKKQYYTcLqA18sqJMGCi-fL20v7ebcZf11CNUQu9YsGbD08FxLulg3JFlvo5oKFmVQXzdex_66NwG1FkzWBU4Xl7mZzHWVggwraN9GhB9c0dAKUDuOirg5FRsXb8JiI3kQClCHHL337e2Y6CI_j4PIDnG00_SVIxBv74oGbxD0kCPbgfPuECDZryAgRUfpPRt1LAwyKrlIbYXf3N7VwzRlo05G4yDQr6VL1AQxF7CGvlbGHK92m5C6V0iCKLltVqcgRJ7eU_GACL-xcX-l6AqpGJyVpBzasynRTrJLLmV4cymPvC4h0UR3Ah-28yAdPlPmnbPm6EO9ovbt7bS9XlUqu8Daric0CIETDNG4z1DSBEAu_jEK7ZPOYrQ4YQy79M0-la4KKDOuJjaRx_F7sEERT1mqic0LKIqzROvxrqNsgmdtc6nzl4tzuSc5arzH8HU_ZJN59ybLZFSP2cRWOyZ1HEOMQk7A4-DlWrploqlfjrn0YvcbXpjJ4iouA_a9j4LaF-JPj4EYOinb6gRCMGEm5Bgg8K9DCVFn7xMDrQ8JDQK5lK-_bkcnjkkphgsIvsC67MUF5Gt4",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjNiYjdlNTZjYzdjM2RhYzQ5MWI0NjhkMDU4NjUyYjBlY2MzMDMyMWEwZmYxMWI5MmQ4Y2E3ZDhiY2UxODNjZmUyNjI5YTZiNWJmNTgyNzQxIn0.eyJhdWQiOiIxIiwianRpIjoiM2JiN2U1NmNjN2MzZGFjNDkxYjQ2OGQwNTg2NTJiMGVjYzMwMzIxYTBmZjExYjkyZDhjYTdkOGJjZTE4M2NmZTI2MjlhNmI1YmY1ODI3NDEiLCJpYXQiOjE1NDY2ODkxOTQsIm5iZiI6MTU0NjY4OTE5NCwiZXhwIjoxNTc4MjI1MTk0LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.bsuV064uV79Hg1bcWlmyBzHWnHxEc0j4nWwvHSqC4DaWWDdqWO_MAkGz2nQByVB2mL-H-6DgiK0I_EsZoVCp4vGSsXtgnEboxnKKQYYTcLqA18sqJMGCi-fL20v7ebcZf11CNUQu9YsGbD08FxLulg3JFlvo5oKFmVQXzdex_66NwG1FkzWBU4Xl7mZzHWVggwraN9GhB9c0dAKUDuOirg5FRsXb8JiI3kQClCHHL337e2Y6CI_j4PIDnG00_SVIxBv74oGbxD0kCPbgfPuECDZryAgRUfpPRt1LAwyKrlIbYXf3N7VwzRlo05G4yDQr6VL1AQxF7CGvlbGHK92m5C6V0iCKLltVqcgRJ7eU_GACL-xcX-l6AqpGJyVpBzasynRTrJLLmV4cymPvC4h0UR3Ah-28yAdPlPmnbPm6EO9ovbt7bS9XlUqu8Daric0CIETDNG4z1DSBEAu_jEK7ZPOYrQ4YQy79M0-la4KKDOuJjaRx_F7sEERT1mqic0LKIqzROvxrqNsgmdtc6nzl4tzuSc5arzH8HU_ZJN59ybLZFSP2cRWOyZ1HEOMQk7A4-DlWrploqlfjrn0YvcbXpjJ4iouA_a9j4LaF-JPj4EYOinb6gRCMGEm5Bgg8K9DCVFn7xMDrQ8JDQK5lK-_bkcnjkkphgsIvsC67MUF5Gt4"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "translation[en][title]",
+							"value": "Dodatak en2 add",
+							"type": "text"
+						},
+						{
+							"key": "translation[hr][title]",
+							"value": "Dodatak hr2 add",
+							"type": "text"
+						},
+						{
+							"key": "translation[de][title]",
+							"value": "Dodatak de2 add",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "999922",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/foodAddition/2",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"foodAddition",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/user/restaurant/menu",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImZjNTkyYzgxMmZlMjBlMTJkZjhlZGVkMGU5Yzk2MWE1NzU5MWMxZjMwM2JjYmE2ZGM0YzdjMDI1N2EzOTc4ZDUyYTdiY2FhMjkzZWRlMTVmIn0.eyJhdWQiOiIxIiwianRpIjoiZmM1OTJjODEyZmUyMGUxMmRmOGVkZWQwZTljOTYxYTU3NTkxYzFmMzAzYmNiYTZkYzRjN2MwMjU3YTM5NzhkNTJhN2JjYWEyOTNlZGUxNWYiLCJpYXQiOjE1NDYyNjc2NjMsIm5iZiI6MTU0NjI2NzY2MywiZXhwIjoxNTc3ODAzNjYzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.lVSeuE5SZr7JvJc_0wNU4eIUakCoqbIsLt43fru-xPzPEwUwNcCjjO1edUwEJWpGF1cq0RCNE6FXNqpY9cuUszKkc6wETRfKKv69XOUT2_UKt6-uFbqXpdEi0TacTWcLeARqmzo2-08HshqzQZifwvheTX3oVilxqZSiOW-xdc2Z5FujMaafhNTzIaeuRIMZCdLzyv2FBGl0eyyPuk3C6DgPT4pBAbB2a4X4ezDm8ToHV87dIEYzq2W-qeWdHrZdqBytOlrKNVuL3C-kJI1dGwGMY6gNohcvfrL7uYF0dSIegpz9J_iXr_mmvdIbem4yAJlhIoRgA_k8eBOlzoP-8IaOGKC4Kia0aWGX-DKZA6YeHCs5nfWZ5mKl1_gAfugl_LnbIBh_EYBMSlpCoiFHC6ZkIDRebhFFqizwadqmu8-xDC9i3Y8EteZVzKgwJE4uVwOaXJwQ1urhnuM-Y_FUyw_Q6udgH0ZqNYWZm6BroUMbIoS75Gu0p_VufVjrylrLRQyUQGF72no2WE8fpz5IuZdrIO0mQ4XmsN8GyDvpsmzEGRmopS1dhWuqh_sLfupMmTNz_p-Y1Hw5tdPM2CpHPDdEm-3aYBNkyXU5GfYQXCPP15C2jRW5JafBIyU50EM0c53Qk0jJEw98Pl1UCmDPybKhV-lJcNmmi62u9UdqNl8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/user/restaurant/1/menu",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"user",
+						"restaurant",
+						"1",
+						"menu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "restaurant@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pass",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/login",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/food/2/image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": ""
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/food/2/image",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"food",
+						"2",
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/food/2/image",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "image_id",
+							"value": "573710568",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/food/2/image",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"food",
+						"2",
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/restaurantCategory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "translation[hr][title]",
+							"value": "Pecenjarnica HR",
+							"type": "text"
+						},
+						{
+							"key": "translation[en][title]",
+							"value": "Pecenjarnica en",
+							"type": "text"
+						},
+						{
+							"key": "translation[de][title]",
+							"value": "Pecenjarnica de",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/restaurantCategory",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"restaurantCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/restaurantCategory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/restaurantCategory",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"restaurantCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/restaurantCategory/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/restaurantCategory/2",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"restaurantCategory",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/restaurantCategory/2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/restaurantCategory/2",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"restaurantCategory",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/restaurantCategory/1?translation[hr][title]=Picerija 1 hr&translation[en][title]=Picerija 1 en&translation[de][title]=Picerija 1 de",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "translation[hr][title]",
+							"value": "Picerija 1 hr",
+							"type": "text"
+						},
+						{
+							"key": "translation[en][title]",
+							"value": "Picerija 1 en"
+						},
+						{
+							"key": "translation[de][title]",
+							"value": "Picerija 1 de",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/restaurantCategory/1?translation[hr][title]=Picerija 1 hr&translation[en][title]=Picerija 1 en&translation[de][title]=Picerija 1 de",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"restaurantCategory",
+						"1"
+					],
+					"query": [
+						{
+							"key": "translation[hr][title]",
+							"value": "Picerija 1 hr"
+						},
+						{
+							"key": "translation[en][title]",
+							"value": "Picerija 1 en"
+						},
+						{
+							"key": "translation[de][title]",
+							"value": "Picerija 1 de"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/restaurantInventoryCategory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "translation[hr][title]",
+							"value": "Grill Hr",
+							"type": "text"
+						},
+						{
+							"key": "translation[en][title]",
+							"value": "Grill En",
+							"type": "text"
+						},
+						{
+							"key": "translation[de][title]",
+							"value": "Grill De",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/restaurantInventoryCategory",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"restaurantInventoryCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/restaurantInventoryCategory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/restaurantInventoryCategory",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"restaurantInventoryCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/restaurantInventoryCategory/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/restaurantInventoryCategory/2",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"restaurantInventoryCategory",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/restaurantInventoryCategory/2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/restaurantInventoryCategory/2",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"restaurantInventoryCategory",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/restaurantInventoryCategory/1",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "translation[hr][title]",
+							"value": "Pizza 2 Hr",
+							"type": "text"
+						},
+						{
+							"key": "translation[en][title]",
+							"value": "Pizza 2 En",
+							"type": "text"
+						},
+						{
+							"key": "translation[de][title]",
+							"value": "Pizza 2 De",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/restaurantInventoryCategory/1",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"restaurantInventoryCategory",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/restaurantCategory/1/restaurantInventoryCategory?inventory_categories[]=1&inventory_categories[]=2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6Ijc0ODAyYzFhMWVhNzk4NDcwNTBhYWM1ZDVmMDFmOGNiMDBjMTJhMGM2NWFjNzU4OWNiYjg0OTY5OWExNzdmNmUzNGQwYTk5MDJkOWRiMDkwIn0.eyJhdWQiOiIxIiwianRpIjoiNzQ4MDJjMWExZWE3OTg0NzA1MGFhYzVkNWYwMWY4Y2IwMGMxMmEwYzY1YWM3NTg5Y2JiODQ5Njk5YTE3N2Y2ZTM0ZDBhOTkwMmQ5ZGIwOTAiLCJpYXQiOjE1NDY3ODUyMjksIm5iZiI6MTU0Njc4NTIyOSwiZXhwIjoxNTc4MzIxMjI5LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.AKeR5ZLSHGVFUj0aZNVweYaosl6qz5aCjU2z90yZgznlPZyVeqlzQCFjOjEzsugHhRHbUPElGCL7j3N0G2_rYFPzVFybJ5xUE2vFUGPhliGadc-qEBqCqsY3iootpYr5bf-bjH-agyd2P2g2KadQ5U8v9kgrPZFnekNH3xqQtuEz3dDG0zue0i7FJ3vs1C3d0YWhrdTMGW8u9aAxfzBIXzO-c-VICexqJW_UdJbZcCqDJD0dPiUphsy3cMF12ANX9_XWwaDsanUb7FgHrK83R8-GD8Fw4dlFyec6KO4I3ey7DowUyOkwnSR3WrpwCCJrPmwxx2DTmfC9v_1yP6F5QLzU0z05dJNpLPUAZeiWGPmB88PA60zp7nD5VBrfMUNszYd7OxXYyagYJ0R7Dux2Gx2Pb8-JJ4EKFOuHktzy5MSdxjTpwKAUJiiT3K61WIj4d58Z__pVWmVJ3Hjqg8NPB59L5fLTA7_qs_-hsUKb3J226n88wWtQRMPV_vipy6l4E0zoGqwEwacMcqfc8vh8_9XDGsrRV5lL9Ci7LatGNuJD2eo72_1j9mHvRouXeOcG2NIFq8BRNcOuQslIzUdnhLczOE_OSslUQrKanjfw4q_9E0Lc0e3XkgHan_W5cbLXUs3SP6PXCuU3zPSvw9L9VV9-I99cp-CN6h1xpn7Es9A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "inventory_categories[]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "inventory_categories[]",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/restaurantCategory/1/restaurantInventoryCategory?inventory_categories[]=1&inventory_categories[]=2",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"restaurantCategory",
+						"1",
+						"restaurantInventoryCategory"
+					],
+					"query": [
+						{
+							"key": "inventory_categories[]",
+							"value": "1"
+						},
+						{
+							"key": "inventory_categories[]",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/restaurantCategory/1/restaurantInventoryCategory",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "inventory_categories[]",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "inventory_categories[]",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/restaurantCategory/1/restaurantInventoryCategory",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"restaurantCategory",
+						"1",
+						"restaurantInventoryCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/restaurantInventoryCategory/1/avatar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": ""
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/restaurantInventoryCategory/1/avatar",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"restaurantInventoryCategory",
+						"1",
+						"avatar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/restaurant/1/orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "crogourmet/api/restaurant/1/orders",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"restaurant",
+						"1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/user/restaurant/1/image",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjZhMzE1NTBkZWFlZDk1OWY4M2VmYWVhM2EzZjc0NTVhYWU2MzkxMDY4YjQwOWQ2Y2JiOWFkY2Y2YmJlOTc4OWE5YmFhZDM2YTUwMDQ2YjY4In0.eyJhdWQiOiIxIiwianRpIjoiNmEzMTU1MGRlYWVkOTU5ZjgzZWZhZWEzYTNmNzQ1NWFhZTYzOTEwNjhiNDA5ZDZjYmI5YWRjZjZiYmU5Nzg5YTliYWFkMzZhNTAwNDZiNjgiLCJpYXQiOjE1NDY3ODAzMTcsIm5iZiI6MTU0Njc4MDMxNywiZXhwIjoxNTc4MzE2MzE3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.eN_ihfqJ6QYY49wIWjlxs9Hv0CcikZMFwOlA9f4OzG0anFG5wtT6YreliE89l0X5ZpMo1wsl5efa8MVe-P9J3zK-SmWj8gx7N__s-llczn--sQndougWh5nAHDdHBqFuuBzaWF6wQDa-mMEC39_uJDkeXbOY_w2qxOSZomiUNtSvbH43WdAxvNGUd8mjmlRy4xt4z5Z4i4IJnSP4M8Ad0IcSsrpWxCaAihKgQpYQcI6aTOxTeijcSCXynovlE-N9Ei48EmZEeALs_0XakeS9Z6wuafABFQILnNPC-p8taUoOmvDVo9yI5bYVQmMr1Xonj3-bzbGIej9pwYmPoGJJl366GCJSetyg5q2qWF3XO9ez62t_U0JJEUHK3-wOEeaXAxWygEtF0K1uj48sEIewzeHRc6dLOK3dpLzVeEh_dPyFaPlrgVTCB7WIyDmxZotrRpcIfQC98Nl-rliuAEdnhmfLgMBCBWg79JnVjy0pA0POjih2P_jf_Tibtudsgu-F1UHZUNQrkNRsv4NLCCG6WZG8t4v2SI1E39waXJITEH9UfRFkdbPqhP6yeviJPxtq2f1axGzLHEBlS-wepeigyj40zeuEcOXE9tHFsX4IbpU_vq5KtpL58d4IAuG-vR4RjSDbZVxpaLEEhbyFa6vnZhpQUUKOIvk0cIydXk9Qsb0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": ""
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/user/restaurant/1/image",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"user",
+						"restaurant",
+						"1",
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/user/restaurant/1/image?image_id=720921569",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjZhMzE1NTBkZWFlZDk1OWY4M2VmYWVhM2EzZjc0NTVhYWU2MzkxMDY4YjQwOWQ2Y2JiOWFkY2Y2YmJlOTc4OWE5YmFhZDM2YTUwMDQ2YjY4In0.eyJhdWQiOiIxIiwianRpIjoiNmEzMTU1MGRlYWVkOTU5ZjgzZWZhZWEzYTNmNzQ1NWFhZTYzOTEwNjhiNDA5ZDZjYmI5YWRjZjZiYmU5Nzg5YTliYWFkMzZhNTAwNDZiNjgiLCJpYXQiOjE1NDY3ODAzMTcsIm5iZiI6MTU0Njc4MDMxNywiZXhwIjoxNTc4MzE2MzE3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.eN_ihfqJ6QYY49wIWjlxs9Hv0CcikZMFwOlA9f4OzG0anFG5wtT6YreliE89l0X5ZpMo1wsl5efa8MVe-P9J3zK-SmWj8gx7N__s-llczn--sQndougWh5nAHDdHBqFuuBzaWF6wQDa-mMEC39_uJDkeXbOY_w2qxOSZomiUNtSvbH43WdAxvNGUd8mjmlRy4xt4z5Z4i4IJnSP4M8Ad0IcSsrpWxCaAihKgQpYQcI6aTOxTeijcSCXynovlE-N9Ei48EmZEeALs_0XakeS9Z6wuafABFQILnNPC-p8taUoOmvDVo9yI5bYVQmMr1Xonj3-bzbGIej9pwYmPoGJJl366GCJSetyg5q2qWF3XO9ez62t_U0JJEUHK3-wOEeaXAxWygEtF0K1uj48sEIewzeHRc6dLOK3dpLzVeEh_dPyFaPlrgVTCB7WIyDmxZotrRpcIfQC98Nl-rliuAEdnhmfLgMBCBWg79JnVjy0pA0POjih2P_jf_Tibtudsgu-F1UHZUNQrkNRsv4NLCCG6WZG8t4v2SI1E39waXJITEH9UfRFkdbPqhP6yeviJPxtq2f1axGzLHEBlS-wepeigyj40zeuEcOXE9tHFsX4IbpU_vq5KtpL58d4IAuG-vR4RjSDbZVxpaLEEhbyFa6vnZhpQUUKOIvk0cIydXk9Qsb0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image_id",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/user/restaurant/1/image?image_id=720921569",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"user",
+						"restaurant",
+						"1",
+						"image"
+					],
+					"query": [
+						{
+							"key": "image_id",
+							"value": "720921569"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/user/restaurant/categories",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImRhNDc1ODNhZGFkODZkNzQ1YjdlZDUzN2RkMDBmYzIzODE0ZjVlNWI5NjIzODYyN2JmMzE5ZTM4NzRlODBjNDM2MTI0NDE3ZWFhZTliNjBhIn0.eyJhdWQiOiIxIiwianRpIjoiZGE0NzU4M2FkYWQ4NmQ3NDViN2VkNTM3ZGQwMGZjMjM4MTRmNWU1Yjk2MjM4NjI3YmYzMTllMzg3NGU4MGM0MzYxMjQ0MTdlYWFlOWI2MGEiLCJpYXQiOjE1NDY4MDc3OTAsIm5iZiI6MTU0NjgwNzc5MCwiZXhwIjoxNTc4MzQzNzkwLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.v9DYN-IXlCOZ7rtl1uOgHAFFWQaHOx6pZdSPu8dZhz47HUM3EaLAcelXML2Z7JsCgCZcL9eO-ntWu7r7zWlMMyaj2omrgUbtjRYQoS8gW4igTNlLo5bSuZoY7lJLX0xiitg6sbY-8eMA9xmwH-b04k_vBTwoxKq6UKyQ25M5AcB01atlJ8vZpabD8bYtWgssx7CuobKomYlUUNzABk73nI4SPBpvoXTkMjr6MwJxcTgsHga3NLoy204E9KgY2FMrG6QtSvGN4mKgBvfdpfD4PGygHzcgmtGJrEy9pF71X15X1yA7vF_ecXXYiClheacfeKwbOKaJpMs32ZIdCYoveHAcllh5Aks_5nDtoX8cAJ1e5Ps5PjoI72dBWYGtWh_x6pwVbs154MJ1f8jMZuoII_7XCYC0AxoF8I6AsIPc0JpGAv_HltpO2cigUSm07-Vdd2kuIYHHuzucHp0sTgDgscV0s-K2ulq775fYibb9kJdYJObNSCurhr0Ve5sXkZk2dosxNX6dbKrK0gIBenegFyZCJK1bHH8rTQXfIqxu6kai6q1oVXpKIH-y221JqhXsEu_OvK-koj5_oQUL70tcSLbfbIR4jwVr5S8uXf0M3npOqsnAvWhu4oxI4Ijge9aS-ksOgnJjYR3rG8R6kJd_8YXBL9hOh9gpUze8qqEB9YE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "restaurant_categories[]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "restaurant_categories[]",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "restaurant_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/user/restaurant/categories",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"user",
+						"restaurant",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/user/restaurant/categories",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6Ijc0ODAyYzFhMWVhNzk4NDcwNTBhYWM1ZDVmMDFmOGNiMDBjMTJhMGM2NWFjNzU4OWNiYjg0OTY5OWExNzdmNmUzNGQwYTk5MDJkOWRiMDkwIn0.eyJhdWQiOiIxIiwianRpIjoiNzQ4MDJjMWExZWE3OTg0NzA1MGFhYzVkNWYwMWY4Y2IwMGMxMmEwYzY1YWM3NTg5Y2JiODQ5Njk5YTE3N2Y2ZTM0ZDBhOTkwMmQ5ZGIwOTAiLCJpYXQiOjE1NDY3ODUyMjksIm5iZiI6MTU0Njc4NTIyOSwiZXhwIjoxNTc4MzIxMjI5LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.AKeR5ZLSHGVFUj0aZNVweYaosl6qz5aCjU2z90yZgznlPZyVeqlzQCFjOjEzsugHhRHbUPElGCL7j3N0G2_rYFPzVFybJ5xUE2vFUGPhliGadc-qEBqCqsY3iootpYr5bf-bjH-agyd2P2g2KadQ5U8v9kgrPZFnekNH3xqQtuEz3dDG0zue0i7FJ3vs1C3d0YWhrdTMGW8u9aAxfzBIXzO-c-VICexqJW_UdJbZcCqDJD0dPiUphsy3cMF12ANX9_XWwaDsanUb7FgHrK83R8-GD8Fw4dlFyec6KO4I3ey7DowUyOkwnSR3WrpwCCJrPmwxx2DTmfC9v_1yP6F5QLzU0z05dJNpLPUAZeiWGPmB88PA60zp7nD5VBrfMUNszYd7OxXYyagYJ0R7Dux2Gx2Pb8-JJ4EKFOuHktzy5MSdxjTpwKAUJiiT3K61WIj4d58Z__pVWmVJ3Hjqg8NPB59L5fLTA7_qs_-hsUKb3J226n88wWtQRMPV_vipy6l4E0zoGqwEwacMcqfc8vh8_9XDGsrRV5lL9Ci7LatGNuJD2eo72_1j9mHvRouXeOcG2NIFq8BRNcOuQslIzUdnhLczOE_OSslUQrKanjfw4q_9E0Lc0e3XkgHan_W5cbLXUs3SP6PXCuU3zPSvw9L9VV9-I99cp-CN6h1xpn7Es9A",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "restaurant_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "restaurant_categories[]",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "restaurant_categories[]",
+							"value": "3",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/user/restaurant/categories",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"user",
+						"restaurant",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/user/restaurant/inventory",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImRhNDc1ODNhZGFkODZkNzQ1YjdlZDUzN2RkMDBmYzIzODE0ZjVlNWI5NjIzODYyN2JmMzE5ZTM4NzRlODBjNDM2MTI0NDE3ZWFhZTliNjBhIn0.eyJhdWQiOiIxIiwianRpIjoiZGE0NzU4M2FkYWQ4NmQ3NDViN2VkNTM3ZGQwMGZjMjM4MTRmNWU1Yjk2MjM4NjI3YmYzMTllMzg3NGU4MGM0MzYxMjQ0MTdlYWFlOWI2MGEiLCJpYXQiOjE1NDY4MDc3OTAsIm5iZiI6MTU0NjgwNzc5MCwiZXhwIjoxNTc4MzQzNzkwLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.v9DYN-IXlCOZ7rtl1uOgHAFFWQaHOx6pZdSPu8dZhz47HUM3EaLAcelXML2Z7JsCgCZcL9eO-ntWu7r7zWlMMyaj2omrgUbtjRYQoS8gW4igTNlLo5bSuZoY7lJLX0xiitg6sbY-8eMA9xmwH-b04k_vBTwoxKq6UKyQ25M5AcB01atlJ8vZpabD8bYtWgssx7CuobKomYlUUNzABk73nI4SPBpvoXTkMjr6MwJxcTgsHga3NLoy204E9KgY2FMrG6QtSvGN4mKgBvfdpfD4PGygHzcgmtGJrEy9pF71X15X1yA7vF_ecXXYiClheacfeKwbOKaJpMs32ZIdCYoveHAcllh5Aks_5nDtoX8cAJ1e5Ps5PjoI72dBWYGtWh_x6pwVbs154MJ1f8jMZuoII_7XCYC0AxoF8I6AsIPc0JpGAv_HltpO2cigUSm07-Vdd2kuIYHHuzucHp0sTgDgscV0s-K2ulq775fYibb9kJdYJObNSCurhr0Ve5sXkZk2dosxNX6dbKrK0gIBenegFyZCJK1bHH8rTQXfIqxu6kai6q1oVXpKIH-y221JqhXsEu_OvK-koj5_oQUL70tcSLbfbIR4jwVr5S8uXf0M3npOqsnAvWhu4oxI4Ijge9aS-ksOgnJjYR3rG8R6kJd_8YXBL9hOh9gpUze8qqEB9YE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "restaurant_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "restaurant_inventory[]",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "restaurant_inventory[]",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/user/restaurant/inventory",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"user",
+						"restaurant",
+						"inventory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crogourmet/api/user/restaurant/inventory",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"name": "Content-Type",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImRhNDc1ODNhZGFkODZkNzQ1YjdlZDUzN2RkMDBmYzIzODE0ZjVlNWI5NjIzODYyN2JmMzE5ZTM4NzRlODBjNDM2MTI0NDE3ZWFhZTliNjBhIn0.eyJhdWQiOiIxIiwianRpIjoiZGE0NzU4M2FkYWQ4NmQ3NDViN2VkNTM3ZGQwMGZjMjM4MTRmNWU1Yjk2MjM4NjI3YmYzMTllMzg3NGU4MGM0MzYxMjQ0MTdlYWFlOWI2MGEiLCJpYXQiOjE1NDY4MDc3OTAsIm5iZiI6MTU0NjgwNzc5MCwiZXhwIjoxNTc4MzQzNzkwLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.v9DYN-IXlCOZ7rtl1uOgHAFFWQaHOx6pZdSPu8dZhz47HUM3EaLAcelXML2Z7JsCgCZcL9eO-ntWu7r7zWlMMyaj2omrgUbtjRYQoS8gW4igTNlLo5bSuZoY7lJLX0xiitg6sbY-8eMA9xmwH-b04k_vBTwoxKq6UKyQ25M5AcB01atlJ8vZpabD8bYtWgssx7CuobKomYlUUNzABk73nI4SPBpvoXTkMjr6MwJxcTgsHga3NLoy204E9KgY2FMrG6QtSvGN4mKgBvfdpfD4PGygHzcgmtGJrEy9pF71X15X1yA7vF_ecXXYiClheacfeKwbOKaJpMs32ZIdCYoveHAcllh5Aks_5nDtoX8cAJ1e5Ps5PjoI72dBWYGtWh_x6pwVbs154MJ1f8jMZuoII_7XCYC0AxoF8I6AsIPc0JpGAv_HltpO2cigUSm07-Vdd2kuIYHHuzucHp0sTgDgscV0s-K2ulq775fYibb9kJdYJObNSCurhr0Ve5sXkZk2dosxNX6dbKrK0gIBenegFyZCJK1bHH8rTQXfIqxu6kai6q1oVXpKIH-y221JqhXsEu_OvK-koj5_oQUL70tcSLbfbIR4jwVr5S8uXf0M3npOqsnAvWhu4oxI4Ijge9aS-ksOgnJjYR3rG8R6kJd_8YXBL9hOh9gpUze8qqEB9YE",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImRhNDc1ODNhZGFkODZkNzQ1YjdlZDUzN2RkMDBmYzIzODE0ZjVlNWI5NjIzODYyN2JmMzE5ZTM4NzRlODBjNDM2MTI0NDE3ZWFhZTliNjBhIn0.eyJhdWQiOiIxIiwianRpIjoiZGE0NzU4M2FkYWQ4NmQ3NDViN2VkNTM3ZGQwMGZjMjM4MTRmNWU1Yjk2MjM4NjI3YmYzMTllMzg3NGU4MGM0MzYxMjQ0MTdlYWFlOWI2MGEiLCJpYXQiOjE1NDY4MDc3OTAsIm5iZiI6MTU0NjgwNzc5MCwiZXhwIjoxNTc4MzQzNzkwLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.v9DYN-IXlCOZ7rtl1uOgHAFFWQaHOx6pZdSPu8dZhz47HUM3EaLAcelXML2Z7JsCgCZcL9eO-ntWu7r7zWlMMyaj2omrgUbtjRYQoS8gW4igTNlLo5bSuZoY7lJLX0xiitg6sbY-8eMA9xmwH-b04k_vBTwoxKq6UKyQ25M5AcB01atlJ8vZpabD8bYtWgssx7CuobKomYlUUNzABk73nI4SPBpvoXTkMjr6MwJxcTgsHga3NLoy204E9KgY2FMrG6QtSvGN4mKgBvfdpfD4PGygHzcgmtGJrEy9pF71X15X1yA7vF_ecXXYiClheacfeKwbOKaJpMs32ZIdCYoveHAcllh5Aks_5nDtoX8cAJ1e5Ps5PjoI72dBWYGtWh_x6pwVbs154MJ1f8jMZuoII_7XCYC0AxoF8I6AsIPc0JpGAv_HltpO2cigUSm07-Vdd2kuIYHHuzucHp0sTgDgscV0s-K2ulq775fYibb9kJdYJObNSCurhr0Ve5sXkZk2dosxNX6dbKrK0gIBenegFyZCJK1bHH8rTQXfIqxu6kai6q1oVXpKIH-y221JqhXsEu_OvK-koj5_oQUL70tcSLbfbIR4jwVr5S8uXf0M3npOqsnAvWhu4oxI4Ijge9aS-ksOgnJjYR3rG8R6kJd_8YXBL9hOh9gpUze8qqEB9YE"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "restaurant_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "restaurant_inventory[]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "restaurant_inventory[]",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "crogourmet/api/user/restaurant/inventory",
+					"host": [
+						"crogourmet"
+					],
+					"path": [
+						"api",
+						"user",
+						"restaurant",
+						"inventory"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
