@@ -109,5 +109,14 @@ Route::group(['middleware' => 'auth:api'], function(){
 
     Route::get('restaurant/{restaurant}/orders', 'RestaurantOrderController@list');
 
+    //Blog
+
+    Route::get('blog/{blog}', 'BlogController@show');
+    Route::get('blog', 'BlogController@list');
+    Route::post('blog', 'BlogController@store');
+    Route::delete('blog/{blog}', 'BlogController@destroy');
+    Route::put('blog/{blog}', 'BlogController@update');
+    Route::post('blog/{blog}/image', 'BlogController@uploadImage');
+
 
 });

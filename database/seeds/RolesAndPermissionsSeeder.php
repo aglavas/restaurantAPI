@@ -138,6 +138,15 @@ class RolesAndPermissionsSeeder extends Seeder
             'get-inventory-winery'
         );
 
+        //Blog
+
+        Permission::create(['name' => 'create-blog']);
+        Permission::create(['name' => 'update-blog']);
+        Permission::create(['name' => 'show-blog']);
+        Permission::create(['name' => 'list-blog']);
+        Permission::create(['name' => 'destroy-blog']);
+        Permission::create(['name' => 'upload-image-blog']);
+
         $admin = Role::create(['name' => 'admin']);
         $admin->givePermissionTo(Permission::all());
     }
