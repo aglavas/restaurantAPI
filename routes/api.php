@@ -45,10 +45,12 @@ Route::group(['middleware' => 'auth:api'], function(){
     // Winery
     Route::post('user/winery', 'User\WineryController@store');
     Route::delete('user/winery/{winery}', 'User\WineryController@destroy');
-    Route::post('user/winery/avatar', 'User\WineryController@uploadAvatar');
+    Route::post('user/winery/{winery}/avatar', 'User\WineryController@uploadAvatar');
     Route::get('user/winery/{winery}', 'User\WineryController@show');
     Route::get('user/winery', 'User\WineryController@list');
     Route::put('user/winery/{winery}', 'User\WineryController@update');
+    Route::post('user/winery/{winery}/image', 'User\WineryController@postImage');
+    Route::delete('user/winery/{winery}/image', 'User\WineryController@destroyImage');
 
     //Ingredient
 

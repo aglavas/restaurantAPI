@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RestaurantCategoryInventorySeeder::class);
         $this->call(RestaurantCategoriesConnectSeeder::class);
         $this->call(RestaurantOrderSeeder::class);
+        $this->call(WinerySeeder::class);
     }
 }

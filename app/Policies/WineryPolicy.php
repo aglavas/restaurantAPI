@@ -57,4 +57,41 @@ class WineryPolicy
     {
         return $user->userable_id === $winery->id;
     }
+
+    /**
+     * Determine whether the user can upload winery avatar
+     *
+     * @param User $user
+     * @param Winery $winery
+     * @return bool
+     */
+    public function uploadAvatar(User $user, Winery $winery)
+    {
+        return $user->userable_id === $winery->id;
+    }
+
+    /**
+     * Determine whether the user can upload winery image
+     *
+     * @param User $user
+     * @param Winery $winery
+     * @return bool
+     */
+    public function uploadImage(User $user, Winery $winery)
+    {
+        return $user->userable_id === $winery->id;
+    }
+
+    /**
+     * Determine whether the user can delete winery image
+     *
+     * @param User $user
+     * @param Winery $winery
+     * @return bool
+     */
+    public function deleteImage(User $user, Winery $winery)
+    {
+        return $user->userable_id === $winery->id;
+    }
+
 }

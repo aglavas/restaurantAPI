@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests\User\Winery;
 
 use App\Http\Requests\FoundationRequest;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +16,7 @@ class WineryUploadAvatarRequest extends FoundationRequest
     {
         $user = Auth::user();
 
-        if(!$user->can('upload-avatar-winery')) {
+        if((!$user->can('uploadAvatar', $this->all()['winery'])) || (!$user->can('upload-avatar-winery'))) {
             return false;
         }
 

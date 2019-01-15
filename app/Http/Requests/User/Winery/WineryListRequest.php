@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests\User\Winery;
 
 use App\Http\Requests\FoundationRequest;
 use Illuminate\Support\Facades\Auth;

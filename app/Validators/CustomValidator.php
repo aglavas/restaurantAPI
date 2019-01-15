@@ -37,6 +37,7 @@ class CustomValidator
         }
         return true;
     }
+
     /**
      *
      * Replacer for custom message
@@ -52,6 +53,49 @@ class CustomValidator
         $message = "Image with that id does not exists.";
         return $message;
     }
+
+    /**
+     * Validation rule for checking does restaurant image exists
+     *
+     * @param $message
+     * @param $attribute
+     * @param $rule
+     * @param $parameters
+     * @return bool
+     */
+    public function wineryImageExists($message, $attribute, $rule, $parameters)
+    {
+        $count = DB::table('wineries')
+            ->where('image_1', $attribute)
+            ->orWhere('image_2', $attribute)
+            ->orWhere('image_3', $attribute)
+            ->orWhere('image_4', $attribute)
+            ->orWhere('image_5', $attribute)
+            ->orWhere('image_6', $attribute)
+            ->count();
+
+        if (!$count) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     *
+     * Replacer for custom message
+     *
+     * @param $message
+     * @param $attribute
+     * @param $rule
+     * @param $parameters
+     * @return string
+     */
+    public function wineryImageExistsReplacer($message, $attribute, $rule, $parameters)
+    {
+        $message = "Image with that id does not exists.";
+        return $message;
+    }
+
 
 
     /**

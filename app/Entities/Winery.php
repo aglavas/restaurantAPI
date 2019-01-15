@@ -15,7 +15,7 @@ class Winery extends Model
     public $translationModel = 'App\Entities\Translation\WineryTranslation';
 
     protected $fillable = [
-        'address', 'open_hours','delivery', 'delivery_price', 'lat', 'long'
+        'address', 'open_hours', 'lat', 'long'
     ];
 
     protected $guard_name = 'web';

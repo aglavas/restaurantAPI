@@ -24,6 +24,11 @@ class AuthController extends Controller
      */
     public function login(AuthLoginRequest $request, AuthManager $authManager, Restaurant $restaurant)
     {
+//        dd([
+//            'email' => request('email'),
+//            'pass' => request('password')
+//        ]);
+
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
             $user = $authManager->user();
             $userResource = AuthResource::make($user);

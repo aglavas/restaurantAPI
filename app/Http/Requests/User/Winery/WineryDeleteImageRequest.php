@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests\User\Winery;
 
-use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\FoundationRequest;
+use Illuminate\Support\Facades\Auth;
 
-class WineryDestroyRequest extends FoundationRequest
+class WineryDeleteImageRequest extends FoundationRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,9 +16,10 @@ class WineryDestroyRequest extends FoundationRequest
     {
         $user = Auth::user();
 
-        if((!$user->can('delete', $this->all()['winery'])) || (!$user->can('destroy-winery'))) {
+        if((!$user->can('deleteImage', $this->all()['winery'])) || (!$user->can('destroy-image-winery'))) {
             return false;
         }
+
 
         return true;
     }
@@ -31,6 +32,7 @@ class WineryDestroyRequest extends FoundationRequest
     public function rules()
     {
         return [
+            'image_id' => 'required|numeric|wineryImageExists'
         ];
     }
 }

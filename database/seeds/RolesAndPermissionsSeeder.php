@@ -123,12 +123,20 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => 'show-winery']);
         Permission::create(['name' => 'list-winery']);
         Permission::create(['name' => 'upload-avatar-winery']);
+        Permission::create(['name' => 'upload-image-winery']);
+        Permission::create(['name' => 'destroy-image-winery']);
         Permission::create(['name' => 'get-inventory-winery']);
 
         $wineryRole = \Spatie\Permission\Models\Role::create(['name' => 'winery']);
-        $wineryRole->givePermissionTo('update-winery', 'destroy-winery', 'show-winery', 'upload-avatar-winery', 'get-inventory-winery');
-
-
+        $wineryRole->givePermissionTo(
+            'update-winery',
+            'destroy-winery',
+            'show-winery',
+            'upload-avatar-winery',
+            'upload-image-winery',
+            'destroy-image-winery',
+            'get-inventory-winery'
+        );
 
         $admin = Role::create(['name' => 'admin']);
         $admin->givePermissionTo(Permission::all());
